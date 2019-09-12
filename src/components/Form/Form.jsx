@@ -12,30 +12,33 @@ function Form(props){
 
 
     const validateForm = (formNumber) => {
-
-    }
-
-    const nextStep = () => {
         const validObj = {};
         let validArr;
-        switch(currentForm) {
+        switch(formNumber) {
             case 1:
                 validArr = validate.firstStep(testForm.values ? testForm.values : {});
-                validArr.forEach(item => validObj[item.path] = item.message);
-                setFirstStepValidFlags(validObj);
                 break;
             case 2:
                 validArr = validate.secondStep(testForm.values ? testForm.values : {});
-                validArr.forEach(item => validObj[item.path] = item.message);
-                setFirstStepValidFlags(validObj);
                 break;
             case 3:
                 validArr = validate.thirdStep(testForm.values ? testForm.values : {});
-                validArr.forEach(item => validObj[item.path] = item.message);
-                setFirstStepValidFlags(validObj);
                 break;
+            default:
+                validArr = false;
         }
-        // setForm(currentForm + 1);
+        if(validArr.length > 0 ) {
+            validArr.forEach(item => validObj[item.path] = item.message);
+            setFirstStepValidFlags(validObj);
+            return false;
+        }
+        return true;
+
+    };
+
+    const nextStep = () => {
+        if(validateForm(currentForm))
+            setForm(currentForm + 1);
     };
 
     const prevStep = () => {
@@ -47,15 +50,15 @@ function Form(props){
             <React.Fragment>
                 <div className="content_row">
                     <Field name="firstName" component={renderInput} error={firstStepValidFlags.firstName} type="text" label="First name"/>
-                    <Field name="middleName" component={renderInput} type="text" label="Middle name"/>
+                    <Field name="middleName" component={renderInput} error={firstStepValidFlags.middleName} type="text" label="Middle name"/>
                 </div>
                 <div className="content_row">
-                    <Field name="age" component={renderInput} type="text" label="Age"/>
-                    <Field name="growth" component={renderInput} type="text" label="Growth"/>
+                    <Field name="age" component={renderInput} error={firstStepValidFlags.age} type="text" label="Age"/>
+                    <Field name="growth" component={renderInput} error={firstStepValidFlags.growth} type="text" label="Growth"/>
                 </div>
                 <div className="content_row">
-                    <Field name="FirstAddress" component={renderInput} type="text" label="First address"/>
-                    <Field name="SecondAddress" component={renderInput} type="text" label="Second address"/>
+                    <Field name="firstAddress" component={renderInput}  error={firstStepValidFlags.firstAddress} type="text" label="First address"/>
+                    <Field name="secondAddress" component={renderInput} error={firstStepValidFlags.secondAddress} type="text" label="Second address"/>
                 </div>
             </React.Fragment>
         )

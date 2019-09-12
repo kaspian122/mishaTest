@@ -1,7 +1,6 @@
 import React from 'react';
 
-export const renderInput = ({input, label, type, error, meta:{touched}}) => {console.log('error - ', error);
-return (
+export const renderInput = ({input, label, type, error, meta:{touched}}) => (
     <div>
         <label>{label}</label>
         <div>
@@ -9,5 +8,4 @@ return (
             {error && <span style={{color: 'red'}}>{error}</span>}
         </div>
     </div>
-)
-}
+);

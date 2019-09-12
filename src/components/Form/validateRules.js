@@ -22,7 +22,7 @@ const firstStepRules = new Schema({
         type: String,
         required: true,
         match: /^[0-9]+$/,
-        length: {min: 2, max: 3},
+        length: {min: 1, max: 3},
     },
     firstAddress: {
         type: String,
