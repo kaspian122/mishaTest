@@ -1,0 +1,20 @@
+.news_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.news_item {
+  width: 400px;
+  height: 400px;
+  background-color: #333336;
+  margin-bottom: 15px;
+}
+.news_item_text {
+  margin-left: 8px;
+}
+.news_item_image {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}

@@ -1,0 +1,37 @@
+.form_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.form_content {
+	background-color: #444446;
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 500px;
+    height: 350px;
+    padding: 10px;
+}
+.inputs_wrapper {
+  height: 90%;
+  border-bottom: 1px solid black;
+}
+
+.form_content_buttons {
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content_row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+

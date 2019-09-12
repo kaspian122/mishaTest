@@ -1,0 +1,36 @@
+.row {
+  display: flex;
+  justify-content: center;
+  width: 95%;
+}
+.link {
+  padding-right: 15px;
+  font-size: 30px;
+}
+link:last-child {
+  padding-right: 0;
+}
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333336;
+  width: 100%;
+  height: 100px;
+}
+.exit-button-wrapper {
+width: 5%;
+}
+.exit-button {
+  height: 35px;
+  width: 90%;
+  background-color: #333336;
+  border: 1px solid black;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.activeUser {
+  margin-bottom: 160px;
+  font-size: 18px;
+}
