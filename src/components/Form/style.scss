@@ -20,11 +20,24 @@
 
 .form_content_buttons {
   height: 10%;
+  position: relative;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
-
+.form_content_right-button {
+  position: absolute;
+  right: 0;
+}
+.form_content_left-button {
+  position: absolute;
+  left: 0;
+}
+.button {
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color: #222226;
+  color: white;
+}
 .content_row {
   display: flex;
   justify-content: space-between;

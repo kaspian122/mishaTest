@@ -84,8 +84,8 @@ const thirdStepRules = new Schema({
 });
 
 const firstStep = values => firstStepRules.validate(values);
-const secondStep = values => secondStepRules.validate(values).errors;
-const thirdStep = values => thirdStepRules.validate(values).errors;
+const secondStep = values => secondStepRules.validate(values);
+const thirdStep = values => thirdStepRules.validate(values);
 
 const validate = {
     firstStep,

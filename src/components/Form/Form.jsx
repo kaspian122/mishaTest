@@ -1,14 +1,18 @@
 import React, {useState} from 'react';
 import './style.scss';
 import { connect } from 'react-redux';
-import {reduxForm, Field} from 'redux-form';
-import {renderInput} from '../../utils/renderInput';
+import {reduxForm, formValueSelector} from 'redux-form';
 import validate from './validateRules';
+import Api from '../../utils/api';
+import FirstStep from './FirstStep';
+import SecondStep from './SecondStep';
+import ThirdStep from './ThirdStep';
 
 function Form(props){
     const [currentForm, setForm] = useState(1);
-    const {handleSubmit, testForm} = props;
-    const [firstStepValidFlags, setFirstStepValidFlags] = useState({});
+    const {testForm} = props;
+    const [formValidFlags, setFormValidFlags] = useState({});
+    const [consent, setConsent] = useState(false);
 
 
     const validateForm = (formNumber) => {
@@ -16,144 +20,118 @@ function Form(props){
         let validArr;
         switch(formNumber) {
             case 1:
-                validArr = validate.firstStep(testForm.values ? testForm.values : {});
+                validArr = validate.firstStep(testForm ? testForm : {});
                 break;
             case 2:
-                validArr = validate.secondStep(testForm.values ? testForm.values : {});
+                validArr = validate.secondStep(testForm ? testForm : {});
                 break;
             case 3:
-                validArr = validate.thirdStep(testForm.values ? testForm.values : {});
+                validArr = validate.thirdStep(testForm ? testForm : {});
                 break;
             default:
                 validArr = false;
         }
-        if(validArr.length > 0 ) {
+        if(validArr && validArr.length > 0 ) {
             validArr.forEach(item => validObj[item.path] = item.message);
-            setFirstStepValidFlags(validObj);
+            setFormValidFlags(validObj);
             return false;
         }
         return true;
 
     };
 
-    const nextStep = () => {
-        if(validateForm(currentForm))
+    const handleNextStep = () => {
+        // if(validateForm(currentForm))
             setForm(currentForm + 1);
     };
 
-    const prevStep = () => {
+    const handlePrevStep = () => {
         setForm(currentForm - 1);
     };
 
-    const renderFirstStep = () => {
-        return(
-            <React.Fragment>
-                <div className="content_row">
-                    <Field name="firstName" component={renderInput} error={firstStepValidFlags.firstName} type="text" label="First name"/>
-                    <Field name="middleName" component={renderInput} error={firstStepValidFlags.middleName} type="text" label="Middle name"/>
-                </div>
-                <div className="content_row">
-                    <Field name="age" component={renderInput} error={firstStepValidFlags.age} type="text" label="Age"/>
-                    <Field name="growth" component={renderInput} error={firstStepValidFlags.growth} type="text" label="Growth"/>
-                </div>
-                <div className="content_row">
-                    <Field name="firstAddress" component={renderInput}  error={firstStepValidFlags.firstAddress} type="text" label="First address"/>
-                    <Field name="secondAddress" component={renderInput} error={firstStepValidFlags.secondAddress} type="text" label="Second address"/>
-                </div>
-            </React.Fragment>
-        )
+    const handleInputChange = () => setConsent(!consent);
+
+    const sendNote = async () => {
+        setConsent(false);
+        try {
+            const response = await Api.addNote(testForm);
+        }
+        catch(error) {
+            console.log('error - ', error);
+        }
     };
 
-    const renderSecondStep = () => {
-        return (
-            <React.Fragment>
-                <div className="content_row">
-                    <Field name="flower" component={renderInput} label="Цветок" type="text"/>
-                    <Field name="animal" component={renderInput} label="Животное" type="text"/>
+    const renderLastStep = () => (
+            <div style={currentForm === 4 ? {display: 'block'} : {display: 'none'}}>
+                <label>
+                    Потвердить согласие :
+                    <input type="checkbox" checked={consent} onChange={handleInputChange} />
+                </label>
+                <div>
+                    {consent && <input type="button" onClick={sendNote} value="Отправить" className="button"/>}
                 </div>
-                <div className="content_row">
-                    <Field name="dish" component={renderInput}  label="Блюдо" type="text"/>
-                    <Field name="cafe" component={renderInput} label="Любимое кафе" type="text"/>
-                </div>
-            </React.Fragment>
-        )
-    };
-
-    const renderThirdStep = () => {
-        return (
-            <React.Fragment>
-                <div className="content_row">
-                    <div>
-                        <div className='input_label'>Направление</div>
-                        <Field name="direction" component="select">
-                            <option/>
-                            <option value ='front'> FrontEnd</option>
-                            <option value='back'>BackEnd</option>
-                        </Field>
-                    </div>
-                    <div>
-                        <div className='input_label'>Любимый цвет</div>
-                        <Field name="color" component="select">
-                            <option/>
-                            <option value='purple'> Фиолетовый</option>
-                            <option value='red'> Красный</option>
-                            <option value='black'> Черный</option>
-                            <option value="white"> Белый</option>
-                        </Field>
-                    </div>
-                </div>
-                <div className="content_row">
-                    <div>
-                        <div className='input_label'>Сторона света</div>
-                        <Field name="sideWorld" component="select">
-                            <option/>
-                            <option value="east"> Восток</option>
-                            <option value="west"> Запад</option>
-                            <option value='north'> Север</option>
-                            <option value="south"> Юг </option>
-                        </Field>
-                    </div>
-                    <div>
-                        <div className='input_label'>Напиток</div>
-                        <Field name="drink" component="select">
-                            <option/>
-                            <option value="tea">Чай</option>
-                            <option value="coffee">Кофе</option>
-                            <option value="water">Вода</option>
-                        </Field>
-                    </div>
-                </div>
-            </React.Fragment>
-        )
-    };
-
+            </div>
+    );
     return(
        <div className='form_container'>
-           <form onSubmit={handleSubmit}>
                <div className='form_content'>
                    <div className="inputs_wrapper">
-                            {currentForm === 1 && renderFirstStep()}
-                            {currentForm === 2 && renderSecondStep()}
-                            {currentForm === 3 && renderThirdStep()}
+                       { currentForm === 1 && <FirstStep validFlags={formValidFlags}/> }
+                       { currentForm === 2 && <SecondStep validFlags={formValidFlags}/> }
+                       { currentForm === 3 && <ThirdStep validFlags={formValidFlags}/> }
+                       { currentForm === 4 && renderLastStep() }
                    </div>
 
                    <div className="form_content_buttons">
-                       <input type="button" value="Назад" onClick={prevStep} disabled={currentForm === 1}/>
-                       <input type="button" value="Вперед" onClick={nextStep} disabled={currentForm === 3}/>
+                       {
+                           currentForm !== 1 && <input
+                                   type="button"
+                                   value="Назад"
+                                   onClick={handlePrevStep}
+                                   className="form_content_left-button button"
+                                />
+                       }
+                       {
+                           currentForm !== 4 && <input
+                                   type="button"
+                                   value="Вперед"
+                                   onClick={handleNextStep}
+                                   className="form_content_right-button button"
+                                />
+                       }
                    </div>
                </div>
-           </form>
        </div>
     );
 }
 
+const formFields = [
+    'firstName',
+    'middleName',
+    'age',
+    'growth',
+    'firstAddress',
+    'secondAddress',
+    'flower',
+    'animal',
+    'dish',
+    'cafe',
+    'direction',
+    'color',
+    'sideWorld',
+    'drink',
+];
+
 const mapStateToProps = (state) => {
+    const selector = formValueSelector('testForm');
     return {
         auth: state.auth,
-        testForm: state.form.testForm,
+        testForm: selector(state, ...formFields),
     }
 };
 
+
 export default connect(mapStateToProps)(reduxForm({
     form: 'testForm',
+    destroyOnUnmount: false,
 })(Form));
