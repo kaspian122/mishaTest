@@ -2,7 +2,7 @@ import React from 'react';
 import './style.scss';
 import Form from '../../components/Form';
 
-function Request(){
+const Request = () => {
 
     return(
        <div>

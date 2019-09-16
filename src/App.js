@@ -11,16 +11,16 @@ import ProtectedPage from './components/ProtectedPage';
 function App() {
 
   return (
-    <div className="App">
-      <Header/>
-      <Switch>
-        <Route path="/login" component={Login}/>
-        <ProtectedPage path="/admin" component={Admin}/>
-        <ProtectedPage path="/news" component={News}/>
-        <ProtectedPage path="/request" component={Request}/>
-        <Route component={PageNotFound}/>
-      </Switch>
-    </div>
+      <div className="App">
+        <Header/>
+        <Switch>
+          <Route path="/login" component={Login}/>
+          <ProtectedPage path="/admin" component={Admin}/>
+          <ProtectedPage path="/news" component={News}/>
+          <ProtectedPage path="/request" component={Request}/>
+          <Route component={PageNotFound}/>
+        </Switch>
+      </div>
   );
 }
 

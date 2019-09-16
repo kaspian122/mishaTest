@@ -8,7 +8,7 @@ import FirstStep from './FirstStep';
 import SecondStep from './SecondStep';
 import ThirdStep from './ThirdStep';
 
-function Form(props){
+const Form = (props) => {
     const [currentForm, setForm] = useState(1);
     const {testForm} = props;
     const [formValidFlags, setFormValidFlags] = useState({});
@@ -20,13 +20,13 @@ function Form(props){
         let validArr;
         switch(formNumber) {
             case 1:
-                validArr = validate.firstStep(testForm ? testForm : {});
+                validArr = validate.firstStep(testForm ? {...testForm} : {});
                 break;
             case 2:
-                validArr = validate.secondStep(testForm ? testForm : {});
+                validArr = validate.secondStep(testForm ? {...testForm} : {});
                 break;
             case 3:
-                validArr = validate.thirdStep(testForm ? testForm : {});
+                validArr = validate.thirdStep(testForm ? {...testForm} : {});
                 break;
             default:
                 validArr = false;

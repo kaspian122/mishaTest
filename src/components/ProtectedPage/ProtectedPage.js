@@ -2,10 +2,11 @@ import React from 'react';
 import {Redirect, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-function ProtectedPage({component: Component, path, auth, ...rest}) {
+const ProtectedPage = ({component: Component, path, auth, ...rest}) => {
+    console.log("auth - ", auth);
     return (
         <Route {...rest} render={() =>
-            path === '/admin' && auth === 'admin' ?
+            path === "/admin" && auth === 'admin' ?
                 ( <Component/> ) :
                 auth ? <Component/> :
                     <Redirect to="/login"/>

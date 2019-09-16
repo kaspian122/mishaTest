@@ -4,7 +4,7 @@ import './style.scss';
 import generateKey from '../../utils/keyUtils';
 import LoadingSpinner from '../../components/LoadingSpinner';
 
-function News(){
+const News = () => {
     const [news, setNews] = useState([]);
     const [booted, setBoot] = useState(false);
 

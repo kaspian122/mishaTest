@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import keyUtils from '../../utils/keyUtils';
 import Actions from '../../store/action';
 
-function Header(props) {
+const Header = (props) =>  {
     const links = [
         {
             link: '/news',

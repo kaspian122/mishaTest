@@ -1,6 +1,6 @@
 import React from 'react';
 
-function LoadingSpinner() {
+const LoadingSpinner = () => {
     return (
         <div> LOADING...</div>
     )
