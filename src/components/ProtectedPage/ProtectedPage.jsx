@@ -3,7 +3,6 @@ import {Redirect, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 const ProtectedPage = ({component: Component, path, auth, ...rest}) => {
-    console.log("auth - ", auth);
     return (
         <Route {...rest} render={() =>
             path === "/admin" && auth === 'admin' ?

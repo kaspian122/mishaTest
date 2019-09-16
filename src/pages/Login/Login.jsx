@@ -39,7 +39,6 @@ function LoginPage(props){
 
   let showModal = () => setModal(!modal);
 
-  console.log(props)
   return(
       <div className="container">
         {modal ? <Referance closeModal={showModal}/> : null}

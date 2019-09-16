@@ -34,6 +34,11 @@ const Header = (props) =>  {
                                      </span>
                                 )
                                 }
+                                {
+                                    props.currentUser === 'admin' ?
+                                        <Link to="/admin"><span className="link"> Просмотреть заявки</span></Link> : null
+
+                                }
                             </div>
                                 <div className="exit-button-wrapper">
                                     <span className="activeUser">{props.currentUser}</span>
