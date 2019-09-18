@@ -3,18 +3,46 @@
   height: 200px;
   background-color: white;
   margin-top: 50px;
+  position: relative;
+  //overflow: hidden;
 }
 
-.left {
-  background-color: rosybrown;
+.hoverBlock {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  background-color: lawngreen;
+  transition: all 1s ease-in-out;
 }
+.left {
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: -100%;
+  transform: translateX(100%);
+}
+
 .right {
-  background-color: wheat;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  right: -100%;
+  transform: translateX(100%);
 }
 
 .top {
-  background-color: lawngreen;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  top: -100%;
+  transform: translateY(100%);
 }
+
 .bottom {
-  background-color: cadetblue;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: -100%;
+  transform: translateY(100%);
 }
+
