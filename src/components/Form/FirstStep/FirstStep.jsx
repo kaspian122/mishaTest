@@ -7,16 +7,16 @@ const FirstStep = props => {
     return (
         <React.Fragment >
             <div className="content_row">
-                <Field name="firstName" component={renderInput} error={validFlags.firstName} type="text" label="First name"/>
-                <Field name="middleName" component={renderInput} error={validFlags.middleName} type="text" label="Middle name"/>
+                <Field name="text1" component={renderInput} error={validFlags.text1} type="text" label="Text1"/>
+                <Field name="text2" component={renderInput} error={validFlags.text2} type="text" label="Text2"/>
             </div>
             <div className="content_row">
-                <Field name="age" component={renderInput} error={validFlags.age} type="text" label="Age"/>
-                <Field name="growth" component={renderInput} error={validFlags.growth} type="text" label="Growth"/>
+                <Field name="number1" component={renderInput} error={validFlags.number1} type="text" label="Number1"/>
+                <Field name="number2" component={renderInput} error={validFlags.number2} type="text" label="Number2"/>
             </div>
             <div className="content_row">
-                <Field name="firstAddress" component={renderInput}  error={validFlags.firstAddress} type="text" label="First address"/>
-                <Field name="secondAddress" component={renderInput} error={validFlags.secondAddress} type="text" label="Second address"/>
+                <Field name="text3" component={renderInput}  error={validFlags.text3} type="text" label="Text3"/>
+                <Field name="text4" component={renderInput} error={validFlags.text4} type="text" label="Text4"/>
             </div>
         </React.Fragment>
     )

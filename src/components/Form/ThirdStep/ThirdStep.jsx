@@ -1,22 +1,23 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
+import {renderSelect} from '../../../utils/renderSelect';
 
 const ThirdStep = props => {
-    const validFlags = props;
+    const {validFlags} = props;
     return (
         <React.Fragment>
             <div className="content_row">
                 <div>
-                    <div className='input_label'>Направление</div>
-                    <Field name="direction" component="select">
+                    <div className='input_label'>Select1</div>
+                    <Field name="select1" component={renderSelect} error={validFlags.select1}>
                         <option/>
-                        <option value ='front'> FrontEnd</option>
-                        <option value='back'>BackEnd</option>
+                        <option name='yes'> yes</option>
+                        <option name='no'>no</option>
                     </Field>
                 </div>
                 <div>
-                    <div className='input_label'>Любимый цвет</div>
-                    <Field name="color" component="select">
+                    <div className='input_label'>Select2</div>
+                    <Field name="select2" component={renderSelect} error={validFlags.select2}>
                         <option/>
                         <option value='purple'> Фиолетовый</option>
                         <option value='red'> Красный</option>
@@ -27,8 +28,8 @@ const ThirdStep = props => {
             </div>
             <div className="content_row">
                 <div>
-                    <div className='input_label'>Сторона света</div>
-                    <Field name="sideWorld" component="select">
+                    <div className='input_label'>Select3</div>
+                    <Field name="select3" component={renderSelect} error={validFlags.select3}>
                         <option/>
                         <option value="east"> Восток</option>
                         <option value="west"> Запад</option>
@@ -37,8 +38,8 @@ const ThirdStep = props => {
                     </Field>
                 </div>
                 <div>
-                    <div className='input_label'>Напиток</div>
-                    <Field name="drink" component="select">
+                    <div className='input_label'>Select4</div>
+                    <Field name="select4" component={renderSelect} error={validFlags.select4}>
                         <option/>
                         <option value="tea">Чай</option>
                         <option value="coffee">Кофе</option>

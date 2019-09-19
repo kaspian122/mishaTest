@@ -10,7 +10,7 @@ import ThirdStep from './ThirdStep';
 
 const Form = (props) => {
     const [currentForm, setForm] = useState(1);
-    const {testForm} = props;
+    const {testForm, auth} = props;
     const [formValidFlags, setFormValidFlags] = useState({});
     const [consent, setConsent] = useState(false);
 
@@ -41,7 +41,7 @@ const Form = (props) => {
     };
 
     const handleNextStep = () => {
-        // if(validateForm(currentForm))
+        if(validateForm(currentForm))
             setForm(currentForm + 1);
     };
 
@@ -54,7 +54,8 @@ const Form = (props) => {
     const sendNote = async () => {
         setConsent(false);
         try {
-            const response = await Api.addNote(testForm);
+            const response = await Api.addNote({...testForm, auth});
+            console.log(response);
         }
         catch(error) {
             console.log('error - ', error);
@@ -106,20 +107,20 @@ const Form = (props) => {
 }
 
 const formFields = [
-    'firstName',
-    'middleName',
-    'age',
-    'growth',
-    'firstAddress',
-    'secondAddress',
-    'flower',
-    'animal',
-    'dish',
-    'cafe',
-    'direction',
-    'color',
-    'sideWorld',
-    'drink',
+    'text1',
+    'text2',
+    'number1',
+    'number2',
+    'text3',
+    'text4',
+    'text5',
+    'text6',
+    'text7',
+    'text8',
+    'select1',
+    'select2',
+    'select3',
+    'select4',
 ];
 
 const mapStateToProps = (state) => {

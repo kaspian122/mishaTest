@@ -1,0 +1,11 @@
+.table-container {
+  padding: 30px;
+  &__row {
+	width: 100%;
+	display: flex;
+	&__column {
+	  margin-right: 15px;
+	}
+  }
+
+}

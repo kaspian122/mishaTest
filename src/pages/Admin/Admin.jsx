@@ -10,10 +10,60 @@ const Admin = ()  => {
                 setNotes(response.data);
             })
     });
-
+    console.log(notes)
     return(
-        <div className="container">
-           <HoverBlock/>
+        <div className="table-container">
+            <div className="table-container__row">
+                <span className="table-container__row__column">
+                    <HoverBlock/>
+                </span>
+                <span className="table-container__row__column">
+                    <HoverBlock/>
+                </span>
+                <span className="table-container__row__column">
+                    <HoverBlock/>
+                </span>
+                <span className="table-container__row__column">
+                    <HoverBlock/>
+                </span>
+                <span className="table-container__row__column">
+                    <HoverBlock/>
+                </span>
+            </div>
+            <div className="table-container__row">
+                <span className="table-container__row__column">
+                    <HoverBlock/>
+                </span>
+                <span className="table-container__row__column">
+                    <HoverBlock/>
+                </span>
+                <span className="table-container__row__column">
+                    <HoverBlock/>
+                </span>
+                <span className="table-container__row__column">
+                    <HoverBlock/>
+                </span>
+                <span className="table-container__row__column">
+                    <HoverBlock/>
+                </span>
+            </div>
+            <div className="table-container__row">
+                <span className="table-container__row__column">
+                    <HoverBlock/>
+                </span>
+                <span className="table-container__row__column">
+                    <HoverBlock/>
+                </span>
+                <span className="table-container__row__column">
+                    <HoverBlock/>
+                </span>
+                <span className="table-container__row__column">
+                    <HoverBlock/>
+                </span>
+                <span className="table-container__row__column">
+                    <HoverBlock/>
+                </span>
+            </div>
         </div>
     );
 }

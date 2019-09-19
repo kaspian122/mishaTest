@@ -1,35 +1,35 @@
 import Schema from 'validate'
 
 const firstStepRules = new Schema({
-    firstName: {
+    text1: {
         type: String,
         required: true,
         length: {min:1, max: 20},
         match: /^[а-яА-ЯA-Za-z]+$/,
     },
-    middleName: {
+    text2: {
         type: String,
         required: true,
         length: {min:1, max: 20},
         match: /^[а-яА-ЯA-Za-z]+$/,
     },
-    age: {
+    number1: {
         required: true,
         type: String,
         match: /^[0-9]+$/,
     },
-    growth: {
+    number2: {
         type: String,
         required: true,
         match: /^[0-9]+$/,
         length: {min: 1, max: 3},
     },
-    firstAddress: {
+    text3: {
         type: String,
         required: true,
         length: {min: 1, max: 20},
     },
-    secondAddress: {
+    text4: {
         type: String,
         required: true,
         length: {min: 1, max: 20},
@@ -37,23 +37,23 @@ const firstStepRules = new Schema({
 });
 
 const secondStepRules = new Schema({
-    flower: {
+    text5: {
         type: String,
         required: true,
         match: /^[а-яА-ЯA-Za-z]+$/,
     },
-    animal: {
+    text6: {
         type: String,
         required: true,
         match: /^[а-яА-ЯA-Za-z]+$/,
     },
-    dish: {
+    text7: {
         type: String,
         required: true,
         match: /^[а-яА-ЯA-Za-z]+$/,
         message: 'dish'
     },
-    cafe: {
+    text8: {
         type: String,
         required: true,
         match: /^[а-яА-ЯA-Za-z]+$/,
@@ -61,22 +61,22 @@ const secondStepRules = new Schema({
 });
 
 const thirdStepRules = new Schema({
-    direction: {
+    select1: {
         type: String,
         required: true,
-        enum: ['front', 'back'],
+        enum: ['yes', 'no'],
     },
-    color: {
+    select2: {
         type: String,
         required: true,
         enum: ['purple', 'black', 'red', 'white'],
     },
-    sideWorld: {
+    select3: {
         type: String,
         required: true,
         enum: ['east', 'west', 'north', 'south'],
     },
-    drink: {
+    select4: {
         type: String,
         required: true,
         enum: ['tea', 'coffee', 'water'],

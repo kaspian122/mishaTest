@@ -8,12 +8,12 @@ const SecondStep = props => {
     return (
         <React.Fragment>
             <div className="content_row">
-                <Field name="flower" component={renderInput} error={validFlags.flower} label="Цветок" type="text"/>
-                <Field name="animal" component={renderInput} error={validFlags.animal} label="Животное" type="text"/>
+                <Field name="text5" component={renderInput} error={validFlags.text5} label="Text5" type="text"/>
+                <Field name="text6" component={renderInput} error={validFlags.text6} label="Text6" type="text"/>
             </div>
             <div className="content_row">
-                <Field name="dish" component={renderInput} error={validFlags.dish} label="Блюдо" type="text"/>
-                <Field name="cafe" component={renderInput} error={validFlags.cafe} label="Любимое кафе" type="text"/>
+                <Field name="text7" component={renderInput} error={validFlags.text7} label="Text7" type="text"/>
+                <Field name="text8" component={renderInput} error={validFlags.text8} label="Text8" type="text"/>
             </div>
         </React.Fragment>
     )

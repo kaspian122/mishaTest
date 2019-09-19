@@ -1,62 +1,61 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './style.scss';
 
-class HoverBlock extends  React.Component {
-    state ={
-        enterDirection: '',
-        leaveDirection: '',
-    };
-    blockRef = React.createRef();
-    hoverRef = React.createRef();
+const HoverBlock = () => {
+    const [hoverClass, setHoverClass] = useState('');
 
-    calculateDirection = (e) => {
-        const mouseCor = {x: e.pageX, y: e.pageY};
-        const blockCor = {
-            startPos: {
-                x: this.blockRef.current.offsetLeft,
-                y: this.blockRef.current.offsetTop
-            },
-            endPos: {
-                x: this.blockRef.current.offsetLeft + 200,
-                y: this.blockRef.current.offsetTop + 200
-            }
-        };
-        if((mouseCor.x <= blockCor.endPos.x && mouseCor.x >= blockCor.startPos.x) && mouseCor.y <= blockCor.startPos.y + 20 ) {
-            return 'top';
+    const calculateDirection = (e, item) => {
+        const itemWidth = item.offsetWidth;
+        const itemHeight = item.offsetHeight;
+        const itemPosition = calculatePosition(item);
+        const x = (e.pageX - itemPosition.x - itemWidth / 2)*( itemWidth> itemHeight ? itemHeight/ itemWidth : 1 );
+        const y = (e.pageY - itemPosition.y - itemHeight / 2) * (itemHeight> itemWidth ? itemWidth / itemHeight : 1);
+        const direction = Math.round(Math.atan2(y, x)/ 1.57079633 + 5) % 4;
+        switch(direction) {
+            case 0:
+                return 'top';
+            case 1:
+                return 'right';
+            case 2:
+                return 'bottom';
+            case 3:
+                return "left";
+            default:
+                return '';
         }
-        else if((mouseCor.x <= blockCor.endPos.x && mouseCor.x >= blockCor.startPos.x) && mouseCor.y >= blockCor.endPos.y - 20) {
-            return 'bottom';
-        }
-        else if (( mouseCor.y >= blockCor.startPos.y && mouseCor.y <= blockCor.endPos.y ) && mouseCor.x <= blockCor.startPos.x + 20) {
-            return 'left';
-        }
-        else if (( mouseCor.y >= blockCor.startPos.y && mouseCor.y <= blockCor.endPos.y ) && mouseCor.x <= blockCor.endPos.x) {
-            return 'right';
-        }
-    }
-
-    handleMouseEnter = (e) => {
-        this.hoverRef.current.classList.add(this.calculateDirection(e));
-        this.setState({enterDirection: this.calculateDirection(e)});
     };
 
-    handleMouseLeave = (e) => {
-        this.hoverRef.current.classList.remove(this.state.enterDirection);
+    const calculatePosition = (el) => {
+        let xCor = 0, yCor = 0;
+        while(el) {
+            xCor += el.offsetLeft + el.clientLeft;
+            yCor += el.offsetTop + el.clientTop;
+            el= el.offsetParent;
+        }
+        return {x: xCor, y: yCor};
     };
 
-    render() {
-        const {enterDirection, leaveDirection} = this.state;
-        return(
-            <div
-                ref={this.blockRef}
-                className="hoverableBlock"
-                onMouseEnter={this.handleMouseEnter}
-                onMouseLeave={this.handleMouseLeave}
-            >
-                <div className="hoverBlock" ref={this.hoverRef}/>
-            </div>
-        )
-    }
-}
+   const  handleMouseEnter = (e) => {
+       const currentItem = e.currentTarget;
+       const direction = calculateDirection(e, currentItem);
+        setHoverClass('enter_' + direction);
+    };
+
+    const handleMouseLeave = (e) => {
+        const currentItem = e.currentTarget;
+        const direction = calculateDirection(e, currentItem);
+        setHoverClass('leave_' + direction);
+    };
+
+    return(
+        <div
+            className="hover-container"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+        >
+            <div className={`hover-container__hover-block hover-container__hover-block_${hoverClass}`} />
+        </div>
+    )
+};
 
 export default  HoverBlock;
