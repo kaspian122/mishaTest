@@ -1,15 +1,3 @@
-.row {
-  display: flex;
-  justify-content: center;
-  width: 95%;
-}
-.link {
-  padding-right: 15px;
-  font-size: 30px;
-}
-link:last-child {
-  padding-right: 0;
-}
 header {
   display: flex;
   justify-content: center;
@@ -18,18 +6,31 @@ header {
   width: 100%;
   height: 100px;
 }
+
+.header-content {
+  display: flex;
+  justify-content: center;
+  width: 95%;
+
+  &_link {
+    padding-right: 15px;
+    font-size: 30px;
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}
+
 .exit-button-wrapper {
-width: 5%;
+  width: 5%;
+  &_exit-button {
+    height: 35px;
+    width: 90%;
+    background-color: #333336;
+    border-radius: 8px;
+  }
 }
-.exit-button {
-  height: 35px;
-  width: 90%;
-  background-color: #333336;
-  border: 1px solid black;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-}
+
 .activeUser {
   margin-bottom: 160px;
   font-size: 18px;

@@ -1,48 +1,65 @@
 .hover-container {
   width: 200px;
   height: 200px;
-  background-color: white;
-  margin-top: 50px;
+  background-color:  #444446;
   position: relative;
   overflow: hidden;
+  border: 1px solid  darkgrey;
+  &__content {
+	width: 100%;
+	margin-top: 5px;
+	margin-left: 5px;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
 
+	&_first_row {
+	  &:first-child {
+		margin-bottom: 5px;
+	  }
+	}
+  }
   &__hover-block {
 	width: 200px;
 	height: 200px;
+	opacity: .6;
 	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	background-color: darkgrey;
 	transform: translate3d(-100%, 0, 0);
 	&_enter_left {
 	  transform: translate3d(0, 0, 0);
-	  animation: enter_left .3s;
+	  animation: enter_left .2s;
 	}
 	&_leave_left {
 	  transform: translate3d(-100%, 0, 0);
-	  animation: leave_left .3s;
+	  animation: leave_left .2s;
 	}
 	&_enter_top {
 	  transform: translate3d(0, 0, 0);
-	  animation: enter_top .3s;
+	  animation: enter_top .2s;
 	}
 	&_leave_top {
 	  transform: translate3d(0, -100%, 0);
-	  animation: leave_top .3s;
+	  animation: leave_top .2s;
 	}
 	&_enter_right {
 	  transform: translate3d(0, 0, 0);
-	  animation: enter_right .3s;
+	  animation: enter_right .2s;
 	}
 	&_leave_right {
 	  transform: translate3d(100%, 0, 0);
-	  animation: leave_right .3s;
+	  animation: leave_right .2s;
 	}
 	&_enter_bottom {
 	  transform: translate3d(0, 0, 0);
-	  animation: enter_bottom .3s;
+	  animation: enter_bottom .2s;
 	}
 	&_leave_bottom {
 	  transform: translate3d(0, 100%, 0);
-	  animation: leave_bottom .3s;
+	  animation: leave_bottom .2s;
 	}
   }
 }

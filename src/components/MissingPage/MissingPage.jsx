@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.scss';
 
-const PageNotFound = () => {
+const MissingPage = () => {
     return (
         <div className="container">
             <h1>404</h1>
@@ -10,4 +10,4 @@ const PageNotFound = () => {
     )
 }
 
-export default PageNotFound;
+export default MissingPage;

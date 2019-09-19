@@ -4,20 +4,22 @@ import Actions from '../../store/action';
 import { connect } from 'react-redux';
 import Api from '../../utils/api';
 import Referance from "../../components/Referance";
+import { withRouter } from 'react-router-dom';
 
-function LoginPage(props){
 
+const LoginPage = (props) =>{
+  const {history} = props;
   const [name, setName] = useState('');
   const [error, setError] = useState(false);
   const [modal, setModal] = useState(false);
-
+console.log('Login - ', props);
   let handleInput = event => {
     setName( event.target.value);
   };
 
   let userAuth = () => {
     Actions.signInUser(name);
-    props.history.push('/news');
+    history.push("/news");
     setError(false);
   };
 
@@ -40,27 +42,35 @@ function LoginPage(props){
   let showModal = () => setModal(!modal);
 
   return(
-      <div className="container">
+
+      <div className="login-container">
         {modal ? <Referance closeModal={showModal}/> : null}
-        <div className="login_form">
-          <div className="form_header">
+        <div className="login-container__form">
+          <div className="login-container__form__header">
             <span>Авторизация</span>
-            <div className='referanceIcon' onClick={showModal}>
+            <div className="login-container__form__header_referanceIcon" onClick={showModal}>
               <img alt ='' src="https://img.icons8.com/material-outlined/48/000000/bookmark.png"/>
             </div>
           </div>
-          <div className="form_content-wrapper">
-            <div className="form_input-wrapper">
-              <input type="text" className="form_input" value={name} onChange={handleInput}/>
+          <div className="login-container__form__content">
+            <div className="login-container__form__content__input-wrapper">
+              <input type="text" className="login-container__form__content__input-wrapper_input"
+                     value={name}
+                     onChange={handleInput}
+              />
             </div>
             {error ?
-                <div className="login_error">
+                <div className="login-container__form__content_error">
                   <span>Пользователь не найден.</span>
                 </div>
                 : null
             }
-            <div className="form_button-wrapper">
-              <div><input type="button" className="form_button" onClick={handleClick} value="Войти"/></div>
+            <div className="login-container__form__content__button-wrapper">
+              <div><input type="button" className="login-container__form__content__button-wrapper_button dark-theme-button"
+                          onClick={handleClick}
+                          value="Войти"
+                    />
+              </div>
             </div>
           </div>
         </div>
@@ -72,4 +82,4 @@ const mapStateToProps = state => {
   return {currentUser: state.auth.currentUser}
 };
 
-export default connect(mapStateToProps)(LoginPage);
+export default connect(mapStateToProps)(withRouter(LoginPage));

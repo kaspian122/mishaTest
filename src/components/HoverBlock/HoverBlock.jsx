@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
 import './style.scss';
+import {Link} from "react-router-dom";
 
-const HoverBlock = () => {
+const HoverBlock = (props) => {
     const [hoverClass, setHoverClass] = useState('');
+    const {note} = props;
+    console.log(note);
 
     const calculateDirection = (e, item) => {
         const itemWidth = item.offsetWidth;
@@ -53,7 +56,15 @@ const HoverBlock = () => {
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            <div className={`hover-container__hover-block hover-container__hover-block_${hoverClass}`} />
+            <div className="hover-container__content">
+                <span className="hover-container__content_first-row">
+                    type: {note.type}
+                </span>
+                <span>name: {note.auth} </span>
+            </div>
+            <div className={`hover-container__hover-block hover-container__hover-block_${hoverClass}`} >
+                <Link to='/'>ПЕРЕЙТИ В ЗАЯВКЕ</Link>
+            </div>
         </div>
     )
 };

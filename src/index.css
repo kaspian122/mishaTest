@@ -29,3 +29,9 @@ a{
   color: white;
   text-decoration: none;
 }
+.dark-theme-button {
+  border: 1px solid black;
+  background-color: #222226;
+  color: white;
+  cursor: pointer;
+}

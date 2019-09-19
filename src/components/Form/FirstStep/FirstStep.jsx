@@ -7,6 +7,10 @@ const FirstStep = props => {
     return (
         <React.Fragment >
             <div className="content_row">
+                <Field name="type" component={renderInput} error={validFlags.text7} label="Тип заявки" type="text"/>
+                <Field name="date" component={renderInput} error={validFlags.text7} label="Дата" type="date"/>
+            </div>
+            <div className="content_row">
                 <Field name="text1" component={renderInput} error={validFlags.text1} type="text" label="Text1"/>
                 <Field name="text2" component={renderInput} error={validFlags.text2} type="text" label="Text2"/>
             </div>

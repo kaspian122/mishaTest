@@ -14,7 +14,6 @@ const Form = (props) => {
     const [formValidFlags, setFormValidFlags] = useState({});
     const [consent, setConsent] = useState(false);
 
-
     const validateForm = (formNumber) => {
         const validObj = {};
         let validArr;
@@ -69,27 +68,28 @@ const Form = (props) => {
                     <input type="checkbox" checked={consent} onChange={handleInputChange} />
                 </label>
                 <div>
-                    {consent && <input type="button" onClick={sendNote} value="Отправить" className="button"/>}
+                    {consent && <input type="button" onClick={sendNote} value="Отправить" className="dark-theme-button"/>}
                 </div>
             </div>
     );
+
     return(
-       <div className='form_container'>
-               <div className='form_content'>
-                   <div className="inputs_wrapper">
+       <div className="form-container">
+               <div className='form-container__content'>
+                   <div className="form-container__content__inputs_wrapper">
                        { currentForm === 1 && <FirstStep validFlags={formValidFlags}/> }
                        { currentForm === 2 && <SecondStep validFlags={formValidFlags}/> }
                        { currentForm === 3 && <ThirdStep validFlags={formValidFlags}/> }
                        { currentForm === 4 && renderLastStep() }
                    </div>
 
-                   <div className="form_content_buttons">
+                   <div className="form-container__content__buttons">
                        {
                            currentForm !== 1 && <input
                                    type="button"
                                    value="Назад"
                                    onClick={handlePrevStep}
-                                   className="form_content_left-button button"
+                                   className="form-container__content__buttons_left-button dark-theme-button"
                                 />
                        }
                        {
@@ -97,16 +97,18 @@ const Form = (props) => {
                                    type="button"
                                    value="Вперед"
                                    onClick={handleNextStep}
-                                   className="form_content_right-button button"
+                                   className="form-container__content__buttons_right-button dark-theme-button"
                                 />
                        }
                    </div>
                </div>
        </div>
     );
-}
+};
 
 const formFields = [
+    'type',
+    'date',
     'text1',
     'text2',
     'number1',
@@ -126,7 +128,7 @@ const formFields = [
 const mapStateToProps = (state) => {
     const selector = formValueSelector('testForm');
     return {
-        auth: state.auth,
+        auth: state.auth.currentUser,
         testForm: selector(state, ...formFields),
     }
 };

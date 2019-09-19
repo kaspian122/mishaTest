@@ -1,6 +1,17 @@
 import Schema from 'validate'
 
 const firstStepRules = new Schema({
+    date: {
+      type: String,
+      required: true,
+        match: /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/,
+    },
+    type: {
+        type: String,
+        required: true,
+        length: {min:1, max: 20},
+        match: /^[а-яА-ЯA-Za-z]+$/,
+    },
     text1: {
         type: String,
         required: true,
