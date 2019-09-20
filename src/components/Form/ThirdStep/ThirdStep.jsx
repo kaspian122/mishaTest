@@ -6,7 +6,7 @@ const ThirdStep = props => {
     const {validFlags} = props;
     return (
         <React.Fragment>
-            <div className="content_row">
+            <div className="form-container__content__inputs_wrapper_row">
                 <div>
                     <div className='input_label'>Select1</div>
                     <Field name="select1" component={renderSelect} error={validFlags.select1}>
@@ -26,7 +26,7 @@ const ThirdStep = props => {
                     </Field>
                 </div>
             </div>
-            <div className="content_row">
+            <div  className="form-container__content__inputs_wrapper_row">
                 <div>
                     <div className='input_label'>Select3</div>
                     <Field name="select3" component={renderSelect} error={validFlags.select3}>

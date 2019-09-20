@@ -6,6 +6,7 @@ import News from './pages/News';
 import MissingPage from './components/MissingPage'
 import ProtectedPage from './components/ProtectedPage';
 import Applications from "./pages/Applications";
+import Application from "./pages/Application";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
             <ProtectedPage path="/applications" renderHeader> <Applications/> </ProtectedPage>
             <ProtectedPage path="/news" renderHeader> <News/> </ProtectedPage>
             <ProtectedPage path="/request" renderHeader> <Request/> </ProtectedPage>
+            <ProtectedPage path="/application/:id" renderHeader> <Application/> </ProtectedPage>
           <Route component={MissingPage}/>
         </Switch>
       </div>

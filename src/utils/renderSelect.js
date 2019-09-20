@@ -1,10 +1,13 @@
 import React from 'react';
 
-export const renderSelect = ({input, label, type, error, children}) => (
+export const renderSelect = ({input, label,  error, children}) => (
     <div>
         <label>{label}</label>
         <div>
-            <select {...input} type={type} style={error ? {border:'1px solid red'} : {border: "none"}}>
+            <select
+                {...input}
+                style={error ? {border:'1px solid red', width: "160px"} : {border: "none", width: "160px"}}
+            >
                 {children}
             </select>
             {error && <div style={{color: 'red'}}>{error}</div>}

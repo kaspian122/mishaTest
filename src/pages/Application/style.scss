@@ -1,0 +1,25 @@
+.application-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &_error-message {
+	font-size: 30px;
+	padding-top: 150px;
+  }
+  &_header {
+	font-size: 30px;
+	border-bottom: 1px solid white;
+	margin: 15px 0;
+  }
+
+  &__content {
+	width: 500px;
+	height: 500px;
+	border: 1px solid whitesmoke;
+	background-color: #444446;
+	&_row {
+	  margin: 5px;
+	}
+  }
+}

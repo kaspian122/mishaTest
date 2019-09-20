@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 const HoverBlock = (props) => {
     const [hoverClass, setHoverClass] = useState('');
-    const {note} = props;
+    const {note, id} = props;
     console.log(note);
 
     const calculateDirection = (e, item) => {
@@ -57,13 +57,16 @@ const HoverBlock = (props) => {
             onMouseLeave={handleMouseLeave}
         >
             <div className="hover-container__content">
-                <span className="hover-container__content_first-row">
-                    type: {note.type}
-                </span>
-                <span>name: {note.auth} </span>
+                <span className="hover-container_title">{id}</span>
+                <div className="hover-container__content_block">
+                    <span>
+                        type: {note.type}
+                    </span>
+                    <span>name: {note.auth} </span>
+                </div>
             </div>
             <div className={`hover-container__hover-block hover-container__hover-block_${hoverClass}`} >
-                <Link to='/'>ПЕРЕЙТИ В ЗАЯВКЕ</Link>
+                <Link to={`/application/${id}`}>ПЕРЕЙТИ K ЗАЯВКЕ</Link>
             </div>
         </div>
     )

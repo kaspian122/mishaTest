@@ -3,9 +3,9 @@ import './style.scss';
 
 const MissingPage = () => {
     return (
-        <div className="container">
+        <div className="missing-page-container">
             <h1>404</h1>
-            <h2>PAGE NOT FOUND</h2>
+            <h2>PAGE NOT FOUND :(</h2>
         </div>
     )
 }

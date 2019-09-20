@@ -16,9 +16,9 @@ const Applications = ()  => {
     return(
         <div className="applications-container">
             {
-                notes.length > 0 && notes.map(item =>
+                notes.length > 0 && notes.map((item, index) =>
                     <div className="applications-container__item">
-                        <HoverBlock note={item}/>
+                        <HoverBlock note={item} id={index}/>
                     </div>
                 )
             }

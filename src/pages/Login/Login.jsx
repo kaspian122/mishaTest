@@ -12,7 +12,7 @@ const LoginPage = (props) =>{
   const [name, setName] = useState('');
   const [error, setError] = useState(false);
   const [modal, setModal] = useState(false);
-console.log('Login - ', props);
+
   let handleInput = event => {
     setName( event.target.value);
   };
@@ -76,7 +76,7 @@ console.log('Login - ', props);
         </div>
       </div>
   );
-}
+};
 
 const mapStateToProps = state => {
   return {currentUser: state.auth.currentUser}
