@@ -1,3 +1,5 @@
+@import '../../constants/colors';
+
 .application-container {
   display: flex;
   flex-direction: column;
@@ -17,7 +19,7 @@
 	width: 500px;
 	height: 500px;
 	border: 1px solid whitesmoke;
-	background-color: #444446;
+	background-color: $dark-grey;
 	&_row {
 	  margin: 5px;
 	}

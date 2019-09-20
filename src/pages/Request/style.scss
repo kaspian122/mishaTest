@@ -1,11 +1,12 @@
+@import '../../constants/colors';
+
 .request-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 100px;
-
   &__content {
-    background-color: #444446;
+    background-color: $dark-grey;
     border: 1px solid black;
     border-radius: 8px;
     width: 500px;

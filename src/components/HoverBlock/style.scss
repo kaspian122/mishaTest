@@ -1,7 +1,9 @@
+@import '../../constants/colors';
+
 .hover-container {
   width: 200px;
   height: 200px;
-  background-color:  #444446;
+  background-color:  $dark-grey;
   position: relative;
   overflow: hidden;
   border: 1px solid  darkgrey;

@@ -1,7 +1,8 @@
+@import '../../constants/colors';
 .referance-container {
   height: 500px;
   width: 500px;
-  background-color: #444446;
+  background-color: $dark-grey;
   position: relative;
   &_close-button {
     position: absolute;

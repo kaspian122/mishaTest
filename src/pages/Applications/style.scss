@@ -7,4 +7,11 @@
   &__item {
 	margin-bottom: 5px;
   }
+  &_error-message {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+  }
 }

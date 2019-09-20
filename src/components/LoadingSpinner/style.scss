@@ -1,0 +1,32 @@
+.load-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 200px;
+  &_loading-spinner {
+	display: inline-block;
+	width: 64px;
+	height: 64px;
+	&:after {
+	  content: " ";
+	  display: block;
+	  width: 46px;
+	  height: 46px;
+	  margin: 1px;
+	  border-radius: 50%;
+	  border: 5px solid #fff;
+	  border-color: #fff transparent #fff transparent;
+	  animation: loading-spinner 1.2s linear infinite;
+	}
+  }
+}
+
+@keyframes loading-spinner {
+  0% {
+	transform: rotate(0deg);
+  }
+  100% {
+	transform: rotate(360deg);
+  }
+}

@@ -2,15 +2,19 @@ import React, {useEffect, useState} from 'react';
 import './style.scss';
 import { withRouter } from 'react-router-dom';
 import Api from '../../utils/api';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 const Application = (props) => {
     const {id} = props.match.params;
     const [note, setNote] = useState(null);
+    const [loaded, setLoad] = useState(false);
     useEffect(() => {
         Api.getNote(id).then(response => {
             console.log(response);
-            if(response && response.status === 200)
+            if(response && response.status === 200) {
                 setNote(response.data);
+            }
+            setLoad(true);
         })
     },[]);
 
@@ -43,7 +47,9 @@ const Application = (props) => {
 
     return(
         <div className="application-container">
-            { note ? renderNoteForm() : renderErrorMessage() }
+            { !loaded && <LoadingSpinner/> }
+            { (loaded && note) && renderNoteForm() }
+            {(loaded && !note) && renderErrorMessage()}
         </div>
     );
 };

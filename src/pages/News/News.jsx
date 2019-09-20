@@ -6,16 +6,16 @@ import LoadingSpinner from '../../components/LoadingSpinner';
 
 const News = () => {
     const [news, setNews] = useState([]);
-    const [booted, setBoot] = useState(false);
+    const [loaded, setLoad] = useState(false);
 
     useEffect(() => {
         Api.getNews().then(response => {
             setNews(response.data);
-            setBoot(true);
+            setLoad(true);
         });
     },[]);
 
-    if(!booted)
+    if(true)
         return <LoadingSpinner/>;
 
     return(

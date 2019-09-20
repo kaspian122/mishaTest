@@ -1,3 +1,5 @@
+@import '../../constants/colors';
+
 .news-content {
   display: flex;
   flex-direction: column;
@@ -6,7 +8,7 @@
   &__item {
     width: 400px;
     height: 400px;
-    background-color: #333336;
+    background-color: $light-grey;
     margin-bottom: 15px;
 
     &_text {

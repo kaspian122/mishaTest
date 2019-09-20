@@ -1,17 +1,17 @@
+@import '../../constants/colors';
+
 .form-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 100px;
-
   &__content {
-    background-color: #444446;
+    background-color: $dark-grey;
     border: 1px solid black;
     border-radius: 8px;
     width: 500px;
     height: 350px;
     padding: 10px;
-
     &__inputs_wrapper {
       height: 90%;
       border-bottom: 1px solid black;
@@ -34,7 +34,6 @@
         position: absolute;
         right: 0;
       }
-
       &_left-button {
         position: absolute;
         left: 0;
