@@ -3,7 +3,7 @@ import './style.scss';
 import Actions from '../../store/action';
 import { connect } from 'react-redux';
 import Api from '../../utils/api';
-import Referance from "../../components/Referance";
+import Referance from "../../components/referance";
 import { withRouter } from 'react-router-dom';
 
 

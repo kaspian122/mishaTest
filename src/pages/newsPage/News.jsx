@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Api from '../../utils/api';
 import './style.scss';
 import generateKey from '../../utils/keyUtils';
-import LoadingSpinner from '../../components/LoadingSpinner';
+import LoadingSpinner from '../../components/loadingSpinner';
 
 const News = () => {
     const [news, setNews] = useState([]);

@@ -1,6 +1,6 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
-import {renderSelect} from '../../../utils/renderSelect';
+import {renderSelect} from '../../select/renderSelect';
 
 const ThirdStep = props => {
     const {validFlags} = props;

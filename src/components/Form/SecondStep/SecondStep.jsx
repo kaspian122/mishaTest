@@ -1,6 +1,6 @@
 import React from 'react';
 import {Field} from "redux-form";
-import {renderInput} from "../../../utils/renderInput";
+import {renderInput} from "../../Input/renderInput";
 import {reduxForm} from 'redux-form';
 
 const SecondStep = props => {

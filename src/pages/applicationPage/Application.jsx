@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './style.scss';
 import { withRouter } from 'react-router-dom';
 import Api from '../../utils/api';
-import LoadingSpinner from '../../components/LoadingSpinner';
+import LoadingSpinner from '../../components/loadingSpinner';
 
 const Application = (props) => {
     const {id} = props.match.params;

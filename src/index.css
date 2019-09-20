@@ -5,28 +5,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+#root {
+  min-height: 100vh;
   background-color: #222226;
   color: #ffffff;
 }
-#root {
-  height: 100%;
-}
-
-html {
-  height: 100%;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-a{
-  color: white;
-  text-decoration: none;
-}
-.dark-theme-button {
-  border: 1px solid black;
-  background-color: #222226;
-  color: white;
-  cursor: pointer;
-}
+
+

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
-import Request from './pages/Request';
-import Login from './pages/Login';
-import News from './pages/News';
-import MissingPage from './components/MissingPage'
-import ProtectedPage from './components/ProtectedPage';
-import Applications from "./pages/Applications";
-import Application from "./pages/Application";
+import Request from './pages/requestPage';
+import Login from './pages/loginPage';
+import News from './pages/newsPage';
+import MissingPage from './components/missingPage'
+import ProtectedPage from './components/protectedPage';
+import Applications from "./pages/applicationsPage";
+import Application from "./pages/applicationPage";
 
 function App() {
   return (

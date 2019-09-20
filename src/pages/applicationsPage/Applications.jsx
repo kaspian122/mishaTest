@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import './style.scss';
 import Api from '../../utils/api';
-import HoverBlock from  '../../components/HoverBlock';
-import LoadingSpinner from '../../components/LoadingSpinner';
+import HoverBlock from '../../components/hoverBlock';
+import LoadingSpinner from '../../components/loadingSpinner';
 
 const Applications = ()  => {
     const [notes, setNotes] = useState([]);

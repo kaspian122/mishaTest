@@ -1,7 +1,7 @@
 import React from 'react';
 import {Redirect, Route} from 'react-router-dom';
 import {connect} from 'react-redux';
-import PageWrapper from "../PageWrapper";
+import PageWrapper from "../pageWrapper";
 
 const ProtectedPage = ({children, renderHeader, path, auth, history, ...rest}) => {
     return (
