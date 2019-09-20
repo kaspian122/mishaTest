@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import styles from './style.scss';
+import style from './style.scss';
 
 class Portal extends React.Component {
     element = document.createElement('div');
@@ -14,7 +14,6 @@ class Portal extends React.Component {
     }
 
     render() {
-        const { classes } = this.props;
         const { children } = this.props;
         this.element.classList.add('portal');
         return ReactDOM.createPortal(children, this.element);
