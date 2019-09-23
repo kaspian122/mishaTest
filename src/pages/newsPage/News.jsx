@@ -15,22 +15,22 @@ const News = () => {
         });
     },[]);
 
-    if(true)
+    if(!loaded)
         return <LoadingSpinner/>;
 
     return(
         <React.Fragment>
             <h1>News</h1>
-            <div className="news-content">
+            <div className="news">
                 {news.length > 0  ?
                     news.map((item, index) => {
                         return (
-                            <div className="news-content__item" key={generateKey(`news_row_${index}_`)}>
-                                <span className="news-content__item_text">{item.id}</span>
-                                <span className="news-content__item_text">
+                            <div className="news__item" key={generateKey(`news_row_${index}_`)}>
+                                <span className="news__item-text">{item.id}</span>
+                                <span className="news__item-text">
                                     {item.title}
                                 </span>
-                                <div className="news-content__item_image">
+                                <div className="news__item-image">
                                     <img alt='' src="https://picsum.photos/id/237/200/300"/>
                                 </div>
                             </div>

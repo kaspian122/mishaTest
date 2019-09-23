@@ -6,11 +6,11 @@ function Referance({closeModal}) {
 
     return (
         <Modal>
-            <div className="referance-container">
-                <div className="referance-container_close-button">
+            <div className="referance">
+                <div className="button button--modal--top-right">
                     <input type="button" value='Закрыть окно.' className="dark-theme-button" onClick={closeModal}/>
                 </div>
-                <div className="referance-container__content">
+                <div className="referance__content">
                     <h1>TEST</h1>
                     <div>wefwefwefwef wefwef wef wef we fwee f</div>
                 </div>

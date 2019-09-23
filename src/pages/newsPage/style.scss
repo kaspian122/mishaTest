@@ -1,6 +1,6 @@
 @import '../../scss/colors';
 
-.news-content {
+.news {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,15 +10,14 @@
     height: 400px;
     background-color: $light-grey;
     margin-bottom: 15px;
-
-    &_text {
-      margin-left: 8px;
-    }
-    &_image {
-      width: 100%;
-      text-align: center;
-      margin-top: 20px;
-    }
+  }
+  &__item-text {
+    margin-left: 8px;
+  }
+  &__item-image {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
   }
 }
 

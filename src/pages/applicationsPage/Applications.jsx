@@ -19,16 +19,16 @@ const Applications = ()  => {
 
 
     return(
-        <div className="applications-container">
+        <div className="applications">
             {!loaded && <LoadingSpinner/>}
             { (loaded&& !notes) &&
-                <div className="applications-container_error-message">
+                <div className="applications__error-message">
                     Не удалось загрузить заявки.
                 </div>
             }
             {(loaded && notes) &&
                 notes.length > 0 && notes.map((item, index) =>
-                    <div className="applications-container__item">
+                    <div className="applications__item">
                         <HoverBlock note={item} id={index}/>
                     </div>
                 )

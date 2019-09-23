@@ -41,31 +41,31 @@ const HoverBlock = (props) => {
    const  handleMouseEnter = (e) => {
        const currentItem = e.currentTarget;
        const direction = calculateDirection(e, currentItem);
-        setHoverClass('enter_' + direction);
+        setHoverClass('enter--' + direction);
     };
 
     const handleMouseLeave = (e) => {
         const currentItem = e.currentTarget;
         const direction = calculateDirection(e, currentItem);
-        setHoverClass('leave_' + direction);
+        setHoverClass('leave--' + direction);
     };
 
     return(
         <div
-            className="hover-container"
+            className="hover-block"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
         >
-            <div className="hover-container__content">
-                <span className="hover-container_title">{id}</span>
-                <div className="hover-container__content_block">
+            <div className="hover-block__content">
+                <span className="hover-block__title">{id}</span>
+                <div className="hover-block__main-block">
                     <span>
                         type: {note.type}
                     </span>
                     <span>name: {note.auth} </span>
                 </div>
             </div>
-            <div className={`hover-container__hover-block hover-container__hover-block_${hoverClass}`} >
+            <div className={`hover-block__moving-block hover-block__moving-block--${hoverClass}`} >
                 <Link to={`/application/${id}`}>ПЕРЕЙТИ K ЗАЯВКЕ</Link>
             </div>
         </div>

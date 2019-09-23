@@ -1,13 +1,9 @@
 @import '../../scss/colors';
-.referance-container {
+.referance {
   height: 500px;
   width: 500px;
   background-color: $dark-grey;
   position: relative;
-  &_close-button {
-    position: absolute;
-    right: 5px;
-  }
   &__content {
     height: 100%;
     display: flex;

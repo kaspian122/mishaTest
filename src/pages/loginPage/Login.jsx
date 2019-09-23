@@ -43,34 +43,33 @@ const LoginPage = (props) =>{
 
   return(
 
-      <div className="login-container">
+      <div className="login">
         {modal ? <Referance closeModal={showModal}/> : null}
-        <div className="login-container__form">
-          <div className="login-container__form__header">
+        <div className="login__form">
+          <div className="login__header">
             <span>Авторизация</span>
-            <div className="login-container__form__header_referanceIcon" onClick={showModal}>
+            <div className="login__referance-icon" onClick={showModal}>
               <img alt ='' src="https://img.icons8.com/material-outlined/48/000000/bookmark.png"/>
             </div>
           </div>
-          <div className="login-container__form__content">
-            <div className="login-container__form__content__input-wrapper">
-              <input type="text" className="login-container__form__content__input-wrapper_input"
+          <div className="login__content">
+            <div className="login__input-wrapper">
+              <input type="text" className="input input--login"
                      value={name}
                      onChange={handleInput}
               />
             </div>
             {error ?
-                <div className="login-container__form__content_error">
+                <div className="login__error">
                   <span>Пользователь не найден.</span>
                 </div>
                 : null
             }
-            <div className="login-container__form__content__button-wrapper">
-              <div><input type="button" className="login-container__form__content__button-wrapper_button dark-theme-button"
+            <div className="login__button-wrapper">
+              <input type="button" className="button"
                           onClick={handleClick}
                           value="Войти"
                     />
-              </div>
             </div>
           </div>
         </div>

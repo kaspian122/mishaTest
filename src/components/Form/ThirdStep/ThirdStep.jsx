@@ -6,18 +6,28 @@ const ThirdStep = props => {
     const {validFlags} = props;
     return (
         <React.Fragment>
-            <div className="form-container__content__inputs_wrapper_row">
+            <div className="form__row">
                 <div>
-                    <div className='input_label'>Select1</div>
-                    <Field name="select1" component={renderSelect} error={validFlags.select1}>
+                    <div className="form__input-label">Select1</div>
+                    <Field
+                        name="select1"
+                        component={renderSelect}
+                        error={validFlags.select1}
+                        className="input"
+                    >
                         <option/>
                         <option name='yes'> yes</option>
                         <option name='no'>no</option>
                     </Field>
                 </div>
                 <div>
-                    <div className='input_label'>Select2</div>
-                    <Field name="select2" component={renderSelect} error={validFlags.select2}>
+                    <div className="form__input-label">Select2</div>
+                    <Field
+                        name="select2"
+                        component={renderSelect}
+                        error={validFlags.select2}
+                        className="input"
+                    >
                         <option/>
                         <option value='purple'> Фиолетовый</option>
                         <option value='red'> Красный</option>
@@ -26,10 +36,15 @@ const ThirdStep = props => {
                     </Field>
                 </div>
             </div>
-            <div  className="form-container__content__inputs_wrapper_row">
+            <div  className="form__row">
                 <div>
-                    <div className='input_label'>Select3</div>
-                    <Field name="select3" component={renderSelect} error={validFlags.select3}>
+                    <div className="form__input-label">Select3</div>
+                    <Field
+                        name="select3"
+                        component={renderSelect}
+                        error={validFlags.select3}
+                        className="input"
+                    >
                         <option/>
                         <option value="east"> Восток</option>
                         <option value="west"> Запад</option>
@@ -38,8 +53,13 @@ const ThirdStep = props => {
                     </Field>
                 </div>
                 <div>
-                    <div className='input_label'>Select4</div>
-                    <Field name="select4" component={renderSelect} error={validFlags.select4}>
+                    <div className="form__input-label">Select4</div>
+                    <Field
+                        name="select4"
+                        component={renderSelect}
+                        error={validFlags.select4}
+                        className="input"
+                    >
                         <option/>
                         <option value="tea">Чай</option>
                         <option value="coffee">Кофе</option>

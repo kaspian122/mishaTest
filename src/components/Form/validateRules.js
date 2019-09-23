@@ -99,9 +99,9 @@ const secondStep = values => secondStepRules.validate(values);
 const thirdStep = values => thirdStepRules.validate(values);
 
 const validate = {
-    firstStep,
-    secondStep,
-    thirdStep
+    1: firstStep,
+    2: secondStep,
+    3: thirdStep
 };
 
 export default validate;

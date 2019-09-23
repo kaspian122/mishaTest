@@ -1,6 +1,6 @@
 @import '../../scss/colors';
 
-.request-container {
+.request {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,7 +16,7 @@
       height: 90%;
       border-bottom: 1px solid black;
     }
-    &_buttons {
+    &__buttons {
       height: 10%;
       display: flex;
       justify-content: space-between;

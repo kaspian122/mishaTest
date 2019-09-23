@@ -25,29 +25,29 @@ const Header = (props) =>  {
     };
 
     return (
-        <header>
+        <header className="header">
                 {
                     currentUser ?
                         <React.Fragment>
-                            <div className="header-content">
+                            <div className="header__content">
                                 {links.map((item, index) =>
-                                    <span className="header-content_link" key={keyUtils(`header_links_${index}_`)}>
+                                    <span className="header__link" key={keyUtils(`header_links_${index}_`)}>
                                          <Link to={item.link}>{item.text}</Link>
                                      </span>
                                 )
                                 }
                                 {
                                     props.currentUser === 'admin' ?
-                                        <Link to="/applications"><span className="header-content_link"> Просмотреть заявки</span></Link> : null
+                                        <Link to="/applications"><span className="header__link"> Просмотреть заявки</span></Link> : null
                                 }
                             </div>
-                                <div className="exit-button-wrapper">
-                                    <span className="activeUser">{props.currentUser}</span>
-                                    <input type="button" value="Выйти" className='exit-button-wrapper_exit-button dark-theme-button' onClick={handleClick}/>
+                                <div className="header__button-wrapper">
+                                    <span className="header__current-user">{props.currentUser}</span>
+                                    <input type="button" value="Выйти" className='button button--small' onClick={handleClick}/>
                                 </div>
                         </React.Fragment>
                         :
-                        <span className="header-content_link">
+                        <span className="header__link">
                             <Link to="/login">Войти</Link>
                         </span>
 

@@ -16,16 +16,16 @@ const Application = (props) => {
             }
             setLoad(true);
         })
-    },[]);
+    },[id]);
 
     const renderNoteForm = () => {
         const keys = Object.keys(note);
         return (
             <React.Fragment>
-                <div className="application-container_header">Заявка № {id}</div>
-                <div className="application-container__content">
+                <div className="application__header">Заявка № {id}</div>
+                <div className="application__content">
                     {Object.values(note).map((item, index) =>
-                        <div className="application-container__content_row">
+                        <div className="application__row">
                             <span>{keys[index]} - {item}.</span>
                         </div>
                     )}
@@ -37,7 +37,7 @@ const Application = (props) => {
     const renderErrorMessage = () => {
       return (
         <div>
-            <span className="application-container_error-message">
+            <span className="application__error-message">
                 Запись №{id} не найдена.
             </span>
         </div>
@@ -46,7 +46,7 @@ const Application = (props) => {
 
 
     return(
-        <div className="application-container">
+        <div className="application">
             { !loaded && <LoadingSpinner/> }
             { (loaded && note) && renderNoteForm() }
             {(loaded && !note) && renderErrorMessage()}

@@ -1,18 +1,18 @@
 import React from 'react';
 
 export const renderInput = (props) => {
-    const {input, label, type, error} = props;
+    const {input, label, type, error, className} = props;
     return (
         <div>
-            <label>{label}</label>
+            <label className="form__input-label">{label}</label>
             <div>
                 <input
                     {...input}
                     placeholder={label}
                     type={type}
-                    style={error ? {border: "1px solid red", width: "165px"} : {border: "none", width: "160px"}}
+                    className={className}
                 />
-                {error && <div style={{color: 'red'}}>{error}</div>}
+                {error && <div className="form__error-message">{error}</div>}
             </div>
         </div>
     )

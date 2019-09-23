@@ -17,19 +17,7 @@ const Form = (props) => {
     const validateForm = (formNumber) => {
         const validObj = {};
         let validArr;
-        switch(formNumber) {
-            case 1:
-                validArr = validate.firstStep(testForm ? {...testForm} : {});
-                break;
-            case 2:
-                validArr = validate.secondStep(testForm ? {...testForm} : {});
-                break;
-            case 3:
-                validArr = validate.thirdStep(testForm ? {...testForm} : {});
-                break;
-            default:
-                validArr = false;
-        }
+        validArr = validate[formNumber](testForm ? {...testForm} : {});
         if(validArr && validArr.length > 0 ) {
             validArr.forEach(item => validObj[item.path] = item.message);
             setFormValidFlags(validObj);
@@ -68,28 +56,28 @@ const Form = (props) => {
                     <input type="checkbox" checked={consent} onChange={handleInputChange} />
                 </label>
                 <div>
-                    {consent && <input type="button" onClick={sendNote} value="Отправить" className="dark-theme-button"/>}
+                    {consent && <input type="button" onClick={sendNote} value="Отправить" className="button"/>}
                 </div>
             </div>
     );
 
     return(
-       <div className="form-container">
-               <div className='form-container__content'>
-                   <div className="form-container__content__inputs_wrapper">
+       <div className="form">
+               <div className='form__wrapper'>
+                   <div className="form__inputs">
                        { currentForm === 1 && <FirstStep validFlags={formValidFlags}/> }
                        { currentForm === 2 && <SecondStep validFlags={formValidFlags}/> }
                        { currentForm === 3 && <ThirdStep validFlags={formValidFlags}/> }
                        { currentForm === 4 && renderLastStep() }
                    </div>
 
-                   <div className="form-container__content__buttons">
+                   <div className="form__buttons">
                        {
                            currentForm !== 1 && <input
                                    type="button"
                                    value="Назад"
                                    onClick={handlePrevStep}
-                                   className="form-container__content__buttons_left-button dark-theme-button"
+                                   className="button button--position--left"
                                 />
                        }
                        {
@@ -97,7 +85,7 @@ const Form = (props) => {
                                    type="button"
                                    value="Вперед"
                                    onClick={handleNextStep}
-                                   className="form-container__content__buttons_right-button dark-theme-button"
+                                   className="button button--position--right"
                                 />
                        }
                    </div>
