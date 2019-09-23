@@ -10,12 +10,11 @@ function Referance(props) {
     return (
         <Modal>
             <div className="referance">
-                <div className="button button--modal--top-right">
-                    <Button
-                        onClick={closeModal}
-                        text="Закрыть окно"
-                    />
-                </div>
+                <Button
+                    onClick={closeModal}
+                    text="Закрыть окно"
+                    parent="referance__button--top-right"
+                />
                 <div className="referance__content">
                     <h1>TEST</h1>
                     <div>wefwefwefwef wefwef wef wef we fwee f</div>

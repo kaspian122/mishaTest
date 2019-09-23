@@ -6,7 +6,6 @@ import Referance from "../referance";
 import Actions from "../../store/action";
 import Api from "../../utils/api";
 import Button from '../button';
-import CustomInput from '../customInput';
 
 const LoginForm = (props) => {
     const {history} = props;
