@@ -5,6 +5,8 @@ import {connect} from "react-redux";
 import Referance from "../referance";
 import Actions from "../../store/action";
 import Api from "../../utils/api";
+import Button from '../button';
+import CustomInput from '../customInput';
 
 const LoginForm = (props) => {
     const {history} = props;
@@ -19,7 +21,7 @@ const LoginForm = (props) => {
     let userAuth = () => {
         Actions.signInUser(name);
         history.push("/news");
-        setError(false);
+        setError('');
     };
 
     let handleClick = async event => {
@@ -29,12 +31,12 @@ const LoginForm = (props) => {
             const response = await Api.userLogin(name);
             response && response.status === 200 ?
                 userAuth() :
-                setError(true);
+                setError('Пользователь не найден.');
 
         }
         catch(error) {
             console.log(error);
-            setError(true);
+            setError('Пользователь не найден.');
         }
     };
 
@@ -52,21 +54,16 @@ const LoginForm = (props) => {
                 </div>
                 <div className="login-form__wrapper">
                     <div className="login-form__input-wrapper">
-                        <input type="text" className="input input--login"
-                               value={name}
-                               onChange={handleInput}
+                        <CustomInput
+                            error={error}
+                            onChange={handleInput}
+                            auth
                         />
                     </div>
-                    {error ?
-                        <div className="login-form__error">
-                            <span>Пользователь не найден.</span>
-                        </div>
-                        : null
-                    }
                     <div className="login-form__button-wrapper">
-                        <input type="button" className="button"
-                               onClick={handleClick}
-                               value="Войти"
+                        <Button
+                            text="Войти"
+                            onClick={handleClick}
                         />
                     </div>
                 </div>

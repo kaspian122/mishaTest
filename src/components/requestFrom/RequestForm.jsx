@@ -8,6 +8,7 @@ import Api from '../../utils/api';
 import FirstStep from './FirstStep';
 import SecondStep from './SecondStep';
 import ThirdStep from './ThirdStep';
+import Button from '../button';
 
 const RequestForm = (props) => {
     const [currentForm, setForm] = useState(1);
@@ -74,20 +75,18 @@ const RequestForm = (props) => {
 
                    <div className="form__buttons">
                        {
-                           currentForm !== 1 && <input
-                                   type="button"
-                                   value="Назад"
-                                   onClick={handlePrevStep}
-                                   className="button button--position-left"
-                                />
+                           currentForm !== 1 && <Button
+                               parent="form__left-button"
+                               text="Prev"
+                               onClick={handlePrevStep}
+                           />
                        }
                        {
-                           currentForm !== 4 && <input
-                                   type="button"
-                                   value="Вперед"
-                                   onClick={handleNextStep}
-                                   className="button button--position-right"
-                                />
+                           currentForm !== 4 && <Button
+                               parent="form__right-button"
+                               text="Next"
+                               onClick={handleNextStep}
+                           />
                        }
                    </div>
                </div>

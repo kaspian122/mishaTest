@@ -1,7 +1,7 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
 import PropTypes from 'prop-types';
-import {renderInput} from "../../Input/renderInput";
+import CustomInput from "../../customInput/CustomInput";
 
 const FirstStep = props => {
     const {validFlags} = props;
@@ -10,7 +10,7 @@ const FirstStep = props => {
             <div className="form__row">
                 <Field
                     name="type"
-                    component={renderInput}
+                    component={CustomInput}
                     error={validFlags.type}
                     label="Тип заявки"
                     type="text"
@@ -18,7 +18,7 @@ const FirstStep = props => {
                 />
                 <Field
                     name="date"
-                    component={renderInput}
+                    component={CustomInput}
                     className="input"
                     error={validFlags.date}
                     label="Дата"
@@ -28,7 +28,7 @@ const FirstStep = props => {
             <div className="form__row">
                 <Field
                     name="text1"
-                    component={renderInput}
+                    component={CustomInput}
                     error={validFlags.text1}
                     type="text"
                     label="Text1"
@@ -36,7 +36,7 @@ const FirstStep = props => {
                 />
                 <Field
                     name="text2"
-                    component={renderInput}
+                    component={CustomInput}
                     error={validFlags.text2}
                     type="text"
                     label="Text2"
@@ -46,7 +46,7 @@ const FirstStep = props => {
             <div  className="form__row">
                 <Field
                     name="number1"
-                    component={renderInput}
+                    component={CustomInput}
                     error={validFlags.number1}
                     type="text"
                     label="Number1"
@@ -54,7 +54,7 @@ const FirstStep = props => {
                 />
                 <Field
                     name="number2"
-                    component={renderInput}
+                    component={CustomInput}
                     error={validFlags.number2}
                     type="text"
                     label="Number2"
@@ -64,7 +64,7 @@ const FirstStep = props => {
             <div  className="form__row">
                 <Field
                     name="text3"
-                    component={renderInput}
+                    component={CustomInput}
                     error={validFlags.text3}
                     type="text"
                     label="Text3"
@@ -72,7 +72,7 @@ const FirstStep = props => {
                 />
                 <Field
                     name="text4"
-                    component={renderInput}
+                    component={CustomInput}
                     error={validFlags.text4}
                     type="text"
                     label="Text4"

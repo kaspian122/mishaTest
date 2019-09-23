@@ -25,19 +25,20 @@
       margin-bottom: 0;
     }
   }
-  &__input-label {
-    margin-bottom: 3px;
-  }
   &__buttons {
     height: 20%;
     position: relative;
     display: flex;
     align-items: center;
   }
-  &__error-message {
-    color: red;
+  &__right-button {
+    position: absolute;
+    right: 0;
   }
-
+  &__left-button {
+    position: absolute;
+    left: 0;
+  }
 }
 
 

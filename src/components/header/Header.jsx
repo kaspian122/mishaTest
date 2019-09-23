@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import keyUtils from '../../utils/keyUtils';
 import Actions from '../../store/action';
+import Button from "../button";
 
 const Header = (props) =>  {
     const {currentUser} = props;
@@ -44,7 +45,11 @@ const Header = (props) =>  {
                             </div>
                                 <div className="header__button-wrapper">
                                     <span className="header__current-user">{props.currentUser}</span>
-                                    <input type="button" value="Выйти" className='button button--small' onClick={handleClick}/>
+                                    <Button
+                                        text="Выйти"
+                                        onClick={handleClick}
+                                        smallSize
+                                    />
                                 </div>
                         </React.Fragment>
                         :
