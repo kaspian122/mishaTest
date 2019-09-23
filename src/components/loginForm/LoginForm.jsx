@@ -21,7 +21,7 @@ const LoginForm = (props) => {
     let userAuth = () => {
         Actions.signInUser(name);
         history.push("/news");
-        setError('');
+        setError(false);
     };
 
     let handleClick = async event => {
@@ -31,12 +31,12 @@ const LoginForm = (props) => {
             const response = await Api.userLogin(name);
             response && response.status === 200 ?
                 userAuth() :
-                setError('Пользователь не найден.');
+                setError(true);
 
         }
         catch(error) {
             console.log(error);
-            setError('Пользователь не найден.');
+            setError(true);
         }
     };
 
@@ -54,12 +54,17 @@ const LoginForm = (props) => {
                 </div>
                 <div className="login-form__wrapper">
                     <div className="login-form__input-wrapper">
-                        <CustomInput
-                            error={error}
-                            onChange={handleInput}
-                            auth
+                        <input type="text" className="login-form__authorization-field"
+                               value={name}
+                               onChange={handleInput}
                         />
                     </div>
+                    {error ?
+                        <div className="login-form__error">
+                            <span>Пользователь не найден.</span>
+                        </div>
+                        : null
+                    }
                     <div className="login-form__button-wrapper">
                         <Button
                             text="Войти"

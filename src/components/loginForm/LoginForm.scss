@@ -31,23 +31,33 @@
 	cursor: pointer;
   }
   &__wrapper {
-	height: 60%;
-	margin-top: 25px;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
   }
   &__input-wrapper {
-	height: 80%;
-	width: 80%;
+	height: 50%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
   }
   &__button-wrapper {
 	width: 100%;
+	height: 50%;
 	display: flex;
-	align-items: center;
 	justify-content: center;
 	border-top: 2px solid black;
+  }
+  &__authorization-field {
+	font-size: 16px;
+	padding: 10px;
+	display: block;
+	border: none;
+	border-bottom: 1px solid #ccc;
+	outline : none;
   }
 }
 

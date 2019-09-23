@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Field, reduxForm} from "redux-form";
-import {renderSelect} from '../../select/renderSelect';
+import CustomSelect from '../../customSelect/CustomSelect';
 
 const ThirdStep = props => {
     const {validFlags} = props;
@@ -12,7 +12,7 @@ const ThirdStep = props => {
                     <div className="form__input-label">Select1</div>
                     <Field
                         name="select1"
-                        component={renderSelect}
+                        component={CustomSelect}
                         error={validFlags.select1}
                         className="input"
                     >
@@ -25,7 +25,7 @@ const ThirdStep = props => {
                     <div className="form__input-label">Select2</div>
                     <Field
                         name="select2"
-                        component={renderSelect}
+                        component={CustomSelect}
                         error={validFlags.select2}
                         className="input"
                     >
@@ -42,7 +42,7 @@ const ThirdStep = props => {
                     <div className="form__input-label">Select3</div>
                     <Field
                         name="select3"
-                        component={renderSelect}
+                        component={CustomSelect}
                         error={validFlags.select3}
                         className="input"
                     >
@@ -57,7 +57,7 @@ const ThirdStep = props => {
                     <div className="form__input-label">Select4</div>
                     <Field
                         name="select4"
-                        component={renderSelect}
+                        component={CustomSelect}
                         error={validFlags.select4}
                         className="input"
                     >

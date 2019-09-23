@@ -9,9 +9,8 @@ const CustomInput = (props) => {
         type,
         error,
         parent,
-        onChange,
         auth,
-        placeHolder
+        placeHolder,
     } = props;
 
     const mixClasses = (parentClass, modiff) => {
@@ -28,7 +27,6 @@ const CustomInput = (props) => {
                     placeholder={placeHolder}
                     type={type}
                     className={className}
-                    onChange={onChange}
                 />
                 {error && <div className="custom-input__error-message">{error}</div>}
         </span>
@@ -51,7 +49,6 @@ CustomInput.defaultProps = {
     error: '',
     parent: '',
     placeHolder: '',
-    onChange: () => {},
     input: {},
 };
 
