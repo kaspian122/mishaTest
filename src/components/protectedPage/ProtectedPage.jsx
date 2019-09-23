@@ -1,9 +1,18 @@
 import React from 'react';
 import {Redirect, Route} from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import PageWrapper from "../pageWrapper";
 
-const ProtectedPage = ({children, renderHeader, path, auth, history, ...rest}) => {
+const ProtectedPage = (props) => {
+    const {
+        children,
+        renderHeader,
+        path,
+        auth,
+        ...rest
+    } = props;
+
     return (
         <Route {...rest} render={() => {
             if(path === '/login') {
@@ -20,6 +29,13 @@ const ProtectedPage = ({children, renderHeader, path, auth, history, ...rest}) =
         }
         }/>
     )
+};
+
+ProtectedPage.propTypes = {
+    auth: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
+    renderHeader: PropTypes.bool.isRequired,
+    children: PropTypes.object.isRequired,
 };
 
 

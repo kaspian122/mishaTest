@@ -1,14 +1,15 @@
+import './RequestForm.scss';
 import React, {useState} from 'react';
-import './style.scss';
 import { connect } from 'react-redux';
 import {reduxForm, formValueSelector} from 'redux-form';
+import PropTypes from "prop-types";
 import validate from './validateRules';
 import Api from '../../utils/api';
 import FirstStep from './FirstStep';
 import SecondStep from './SecondStep';
 import ThirdStep from './ThirdStep';
 
-const Form = (props) => {
+const RequestForm = (props) => {
     const [currentForm, setForm] = useState(1);
     const {testForm, auth} = props;
     const [formValidFlags, setFormValidFlags] = useState({});
@@ -77,7 +78,7 @@ const Form = (props) => {
                                    type="button"
                                    value="Назад"
                                    onClick={handlePrevStep}
-                                   className="button button--position--left"
+                                   className="button button--position-left"
                                 />
                        }
                        {
@@ -85,7 +86,7 @@ const Form = (props) => {
                                    type="button"
                                    value="Вперед"
                                    onClick={handleNextStep}
-                                   className="button button--position--right"
+                                   className="button button--position-right"
                                 />
                        }
                    </div>
@@ -121,8 +122,13 @@ const mapStateToProps = (state) => {
     }
 };
 
+RequestForm.propTypes = {
+    auth: PropTypes.string.isRequired,
+    testForm: PropTypes.object.isRequired,
+};
+
 
 export default connect(mapStateToProps)(reduxForm({
     form: 'testForm',
     destroyOnUnmount: false,
-})(Form));
+})(RequestForm));

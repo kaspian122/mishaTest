@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import Api from '../../utils/api';
-import './style.scss';
+import './NewsPage.scss';
 import generateKey from '../../utils/keyUtils';
 import LoadingSpinner from '../../components/loadingSpinner';
 
-const News = () => {
+const NewsPage = () => {
     const [news, setNews] = useState([]);
     const [loaded, setLoad] = useState(false);
 
@@ -21,7 +21,7 @@ const News = () => {
     return(
         <React.Fragment>
             <h1>News</h1>
-            <div className="news">
+            <div className="news-page">
                 {news.length > 0  ?
                     news.map((item, index) => {
                         return (
@@ -43,4 +43,4 @@ const News = () => {
     )
 }
 
-export default News;
+export default NewsPage;

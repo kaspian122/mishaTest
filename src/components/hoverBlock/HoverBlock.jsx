@@ -1,6 +1,7 @@
+import './HoverBlock.scss';
 import React, {useState} from 'react';
-import './style.scss';
 import {Link} from "react-router-dom";
+import PropTypes from "prop-types";
 
 const HoverBlock = (props) => {
     const [hoverClass, setHoverClass] = useState('');
@@ -41,13 +42,13 @@ const HoverBlock = (props) => {
    const  handleMouseEnter = (e) => {
        const currentItem = e.currentTarget;
        const direction = calculateDirection(e, currentItem);
-        setHoverClass('enter--' + direction);
+        setHoverClass('enter-' + direction);
     };
 
     const handleMouseLeave = (e) => {
         const currentItem = e.currentTarget;
         const direction = calculateDirection(e, currentItem);
-        setHoverClass('leave--' + direction);
+        setHoverClass('leave-' + direction);
     };
 
     return(
@@ -70,6 +71,11 @@ const HoverBlock = (props) => {
             </div>
         </div>
     )
+};
+
+HoverBlock.propTypes = {
+    id: PropTypes.number.isRequired,
+    note: PropTypes.object.isRequired,
 };
 
 export default  HoverBlock;

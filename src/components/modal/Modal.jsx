@@ -1,6 +1,6 @@
 import React from 'react';
-import style from './style.scss';
-import Portal from './portal';
+import style from './Modal.scss';
+import Portal from './Portal';
 
 const Modal = props => {
         const {children } = props;

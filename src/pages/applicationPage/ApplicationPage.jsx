@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import './style.scss';
+import './ApplicationPage.scss';
 import { withRouter } from 'react-router-dom';
 import Api from '../../utils/api';
 import LoadingSpinner from '../../components/loadingSpinner';
 
-const Application = (props) => {
+const ApplicationPage = (props) => {
     const {id} = props.match.params;
     const [note, setNote] = useState(null);
     const [loaded, setLoad] = useState(false);
@@ -46,7 +46,7 @@ const Application = (props) => {
 
 
     return(
-        <div className="application">
+        <div className="application-page">
             { !loaded && <LoadingSpinner/> }
             { (loaded && note) && renderNoteForm() }
             {(loaded && !note) && renderErrorMessage()}
@@ -54,4 +54,4 @@ const Application = (props) => {
     );
 };
 
-export default  withRouter(Application);
+export default  withRouter(ApplicationPage);

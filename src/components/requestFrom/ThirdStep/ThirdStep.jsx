@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Field, reduxForm} from "redux-form";
 import {renderSelect} from '../../select/renderSelect';
 
@@ -69,6 +70,10 @@ const ThirdStep = props => {
             </div>
         </React.Fragment>
     )
+};
+
+ThirdStep.propsTypes = {
+    validFlags: PropTypes.object.isRequired,
 };
 
 export default reduxForm({

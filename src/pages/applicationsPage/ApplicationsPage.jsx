@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import './style.scss';
+import './ApplicationsPage.scss';
 import Api from '../../utils/api';
 import HoverBlock from '../../components/hoverBlock';
 import LoadingSpinner from '../../components/loadingSpinner';
 
-const Applications = ()  => {
+const ApplicationsPage = ()  => {
     const [notes, setNotes] = useState([]);
     const [loaded, setLoad] = useState(false);
     useEffect(() => {
@@ -19,7 +19,7 @@ const Applications = ()  => {
 
 
     return(
-        <div className="applications">
+        <div className="applications-page">
             {!loaded && <LoadingSpinner/>}
             { (loaded&& !notes) &&
                 <div className="applications__error-message">
@@ -37,4 +37,4 @@ const Applications = ()  => {
     );
 }
 
-export default Applications;
+export default ApplicationsPage;

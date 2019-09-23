@@ -1,7 +1,7 @@
 import React from 'react';
-import {Field} from "redux-form";
+import {reduxForm, Field} from 'redux-form';
+import PropTypes from 'prop-types';
 import {renderInput} from "../../Input/renderInput";
-import {reduxForm} from 'redux-form';
 
 const SecondStep = props => {
     const {validFlags} = props;
@@ -46,6 +46,10 @@ const SecondStep = props => {
         </React.Fragment>
     )
 };
+
+SecondStep.propTypes = {
+    validFlags: PropTypes.object.isRequired,
+}
 
 export default reduxForm({
     form: 'testForm',

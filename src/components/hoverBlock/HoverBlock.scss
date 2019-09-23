@@ -34,23 +34,23 @@
 	align-items: center;
 	background-color: darkgrey;
 	transform: translate3d(-100%, 0, 0);
-	&--enter--left {
+	&--enter-left {
 	  transform: translate3d(0, 0, 0);
 	  animation: enter_left .2s;
 	}
-	&--leave--left {
+	&--leave-left {
 	  transform: translate3d(-100%, 0, 0);
 	  animation: leave_left .2s;
 	}
-	&--enter--top {
+	&--enter-top {
 	  transform: translate3d(0, 0, 0);
 	  animation: enter_top .2s;
 	}
-	&--leave--top {
+	&--leave-top {
 	  transform: translate3d(0, -100%, 0);
 	  animation: leave_top .2s;
 	}
-	&--enter--right {
+	&--enter-right {
 	  transform: translate3d(0, 0, 0);
 	  animation: enter_right .2s;
 	}
@@ -58,11 +58,11 @@
 	  transform: translate3d(100%, 0, 0);
 	  animation: leave_right .2s;
 	}
-	&--enter--bottom {
+	&--enter-bottom {
 	  transform: translate3d(0, 0, 0);
 	  animation: enter_bottom .2s;
 	}
-	&--leave--bottom {
+	&--leave-bottom {
 	  transform: translate3d(0, 100%, 0);
 	  animation: leave_bottom .2s;
 	}

@@ -1,6 +1,7 @@
+import './Header.scss';
 import React from 'react';
 import {Link} from "react-router-dom";
-import './style.scss';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import keyUtils from '../../utils/keyUtils';
 import Actions from '../../store/action';
@@ -60,6 +61,9 @@ const mapStateToProps = state => {
     return {
         currentUser: state.auth.currentUser
     }
+};
+Header.propTypes = {
+    currentUser: PropTypes.string.isRequired,
 };
 
 export default connect(mapStateToProps)(Header);

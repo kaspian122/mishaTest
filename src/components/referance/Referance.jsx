@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.scss';
+import './Referance.scss';
 import Modal from '../modal';
 
 function Referance({closeModal}) {

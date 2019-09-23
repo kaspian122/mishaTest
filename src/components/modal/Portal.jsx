@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import style from './style.scss';
+import style from './Modal.scss';
 
 class Portal extends React.Component {
     element = document.createElement('div');

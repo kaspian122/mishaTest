@@ -1,5 +1,6 @@
 import React from 'react';
 import {Field, reduxForm} from "redux-form";
+import PropTypes from 'prop-types';
 import {renderInput} from "../../Input/renderInput";
 
 const FirstStep = props => {
@@ -80,6 +81,10 @@ const FirstStep = props => {
             </div>
         </React.Fragment>
     )
+};
+
+FirstStep.propTypes = {
+    validFlags: PropTypes.object.isRequired,
 };
 
 export default reduxForm({
