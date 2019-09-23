@@ -13,7 +13,8 @@
     "redux": "^4.0.4",
     "redux-devtools": "^3.5.0",
     "redux-form": "^8.2.6",
-    "validate": "^4.5.1"
+    "validate": "^4.5.1",
+    "prop-types": "latest"
   },
   "scripts": {
     "start": "react-scripts start",

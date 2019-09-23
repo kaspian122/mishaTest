@@ -1,5 +1,5 @@
-import React from 'react';
 import './RequestPage.scss';
+import React from 'react';
 import Form from '../../components/requestFrom';
 
 const RequestPage = () => {

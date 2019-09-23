@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
 import './ApplicationsPage.scss';
+import React, {useEffect, useState} from 'react';
 import Api from '../../utils/api';
 import HoverBlock from '../../components/hoverBlock';
 import LoadingSpinner from '../../components/loadingSpinner';

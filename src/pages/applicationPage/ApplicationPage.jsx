@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
 import './ApplicationPage.scss';
+import React, {useEffect, useState} from 'react';
 import { withRouter } from 'react-router-dom';
 import Api from '../../utils/api';
 import LoadingSpinner from '../../components/loadingSpinner';

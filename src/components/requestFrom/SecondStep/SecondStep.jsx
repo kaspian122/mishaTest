@@ -49,7 +49,7 @@ const SecondStep = props => {
 
 SecondStep.propTypes = {
     validFlags: PropTypes.object.isRequired,
-}
+};
 
 export default reduxForm({
     form: 'testForm',

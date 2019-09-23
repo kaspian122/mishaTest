@@ -1,6 +1,6 @@
+import './NewsPage.scss';
 import React, {useEffect, useState} from 'react';
 import Api from '../../utils/api';
-import './NewsPage.scss';
 import generateKey from '../../utils/keyUtils';
 import LoadingSpinner from '../../components/loadingSpinner';
 

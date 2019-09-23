@@ -1,10 +1,10 @@
 import './LoginForm.scss';
 import React, {useState} from 'react';
 import { withRouter } from 'react-router-dom';
+import {connect} from "react-redux";
 import Referance from "../referance";
 import Actions from "../../store/action";
 import Api from "../../utils/api";
-import {connect} from "react-redux";
 
 const LoginForm = (props) => {
     const {history} = props;
