@@ -1,0 +1,49 @@
+@import '../../scss/colors';
+@import '../../scss/globalStyles';
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__wrapper {
+    background-color: $dark-grey;
+    border: 1px solid black;
+    border-radius: 8px;
+    width: 500px;
+    height: 450px;
+    padding: 10px;
+  }
+  &__inputs {
+    height: 80%;
+    border-bottom: 1px solid black;
+  }
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__buttons {
+    height: 20%;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  &__right-button {
+    position: absolute;
+    right: 0;
+  }
+  &__left-button {
+    position: absolute;
+    left: 0;
+  }
+}
+
+
+
+
+
+
+

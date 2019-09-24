@@ -1,0 +1,18 @@
+@import '../../scss/colors';
+.referance {
+  height: 500px;
+  width: 500px;
+  background-color: $dark-grey;
+  position: relative;
+  &__content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__button--top-right {
+    position: absolute;
+    right: 5px;
+  }
+}

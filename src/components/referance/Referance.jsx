@@ -1,16 +1,21 @@
+import './Referance.scss';
 import React from 'react';
-import './style.scss';
+import PropTypes from 'prop-types';
 import Modal from '../modal';
+import Button from '../button';
 
-function Referance({closeModal}) {
+function Referance(props) {
+    const {closeModal} = props;
 
     return (
         <Modal>
-            <div className="referance-container">
-                <div className="referance-container_close-button">
-                    <input type="button" value='Закрыть окно.' className="dark-theme-button" onClick={closeModal}/>
-                </div>
-                <div className="referance-container__content">
+            <div className="referance">
+                <Button
+                    onClick={closeModal}
+                    text="Закрыть окно"
+                    parent="referance__button--top-right"
+                />
+                <div className="referance__content">
                     <h1>TEST</h1>
                     <div>wefwefwefwef wefwef wef wef we fwee f</div>
                 </div>
@@ -18,5 +23,10 @@ function Referance({closeModal}) {
         </Modal>
     )
 }
+
+Referance.propTypes = {
+    closeModal: PropTypes.func.isRequired,
+};
+
 
 export default Referance;

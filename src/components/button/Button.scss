@@ -1,0 +1,17 @@
+.button {
+  width: 100px;
+  height: 35px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+  background-color: #333336;
+  border:  1px solid black;
+  border-radius: 8px;
+  cursor: pointer;
+
+  &--small {
+	height: 35px;
+	width: 90%;
+	margin: 0;
+  }
+}

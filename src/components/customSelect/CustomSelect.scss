@@ -1,0 +1,8 @@
+.custom-select {
+  display: flex;
+  flex-direction: column;
+
+  &__error-message {
+	color: red;
+  }
+}

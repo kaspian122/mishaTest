@@ -1,0 +1,27 @@
+@import '../../scss/colors';
+
+.application-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__error-message {
+	font-size: 30px;
+	padding-top: 150px;
+  }
+  &__header {
+	font-size: 30px;
+	border-bottom: 1px solid white;
+	margin: 15px 0;
+  }
+  &__content {
+	width: 500px;
+	height: 500px;
+	border: 1px solid whitesmoke;
+	background-color: $dark-grey;
+  }
+  &__row {
+	margin: 5px;
+  }
+}

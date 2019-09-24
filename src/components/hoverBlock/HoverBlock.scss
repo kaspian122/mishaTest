@@ -1,0 +1,112 @@
+@import '../../scss/colors';
+
+.hover-block {
+  width: 200px;
+  height: 200px;
+  background-color:  $dark-grey;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid  darkgrey;
+  &__title {
+	padding-left: 3px;
+  }
+  &__content {
+	width: 100%;
+	margin-top: 5px;
+	margin-left: 5px;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+  }
+  &__main-block {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  }
+  &__moving-block {
+	width: 200px;
+	height: 200px;
+	opacity: .6;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: darkgrey;
+	transform: translate3d(-100%, 0, 0);
+	&--enter-left {
+	  transform: translate3d(0, 0, 0);
+	  animation: enter_left .2s;
+	}
+	&--leave-left {
+	  transform: translate3d(-100%, 0, 0);
+	  animation: leave_left .2s;
+	}
+	&--enter-top {
+	  transform: translate3d(0, 0, 0);
+	  animation: enter_top .2s;
+	}
+	&--leave-top {
+	  transform: translate3d(0, -100%, 0);
+	  animation: leave_top .2s;
+	}
+	&--enter-right {
+	  transform: translate3d(0, 0, 0);
+	  animation: enter_right .2s;
+	}
+	&--leave--right {
+	  transform: translate3d(100%, 0, 0);
+	  animation: leave_right .2s;
+	}
+	&--enter-bottom {
+	  transform: translate3d(0, 0, 0);
+	  animation: enter_bottom .2s;
+	}
+	&--leave-bottom {
+	  transform: translate3d(0, 100%, 0);
+	  animation: leave_bottom .2s;
+	}
+  }
+}
+
+@keyframes enter_left {
+  from {
+	transform: translate3d(-100%, 0, 0)
+  }
+}
+@keyframes leave_left {
+  from {
+	transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes enter_right {
+  from {
+	transform: translate3d(100%, 0, 0);
+  }
+}
+@keyframes leave_right {
+  from {
+	transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes enter_top {
+  from {
+	transform: translate3d(0, -100%, 0);
+  }
+}
+@keyframes leave_top {
+  from {
+	transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes enter_bottom {
+  from {
+	transform: translate3d(0, 100%, 0);
+  }
+}
+@keyframes leave_bottom {
+  from {
+	transform: translate3d(0, 0, 0);
+  }
+}
+
