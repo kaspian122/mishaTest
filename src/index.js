@@ -4,12 +4,16 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from "react-router-dom";
 import { appReducer, initialState } from './store/reducer';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
+import createSagaMiddleware from 'redux-saga';
+import Actions from './store/action';
 
-const store = createStore(appReducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-const dispatch = store.dispatch;
-export default  dispatch;
+const sagaMiddleware = createSagaMiddleware();
+const store = createStore(appReducer, initialState, applyMiddleware(sagaMiddleware));
+sagaMiddleware.run(Actions.sagaWatch);
+const action = (type) =>  store.dispatch(type);
+export default  action;
 
 ReactDOM.render(
     <BrowserRouter>

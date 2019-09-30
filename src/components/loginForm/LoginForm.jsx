@@ -4,11 +4,11 @@ import { withRouter } from 'react-router-dom';
 import {connect} from "react-redux";
 import Referance from "../referance";
 import Actions from "../../store/action";
-import Api from "../../utils/api";
 import Button from '../button';
+import dispatch from '../../index';
 
 const LoginForm = (props) => {
-    const {history} = props;
+    const {history, currentUser} = props;
     const [name, setName] = useState('');
     const [error, setError] = useState(false);
     const [modal, setModal] = useState(false);
@@ -25,18 +25,7 @@ const LoginForm = (props) => {
 
     let handleClick = async event => {
         event.preventDefault();
-        try
-        {
-            const response = await Api.userLogin(name);
-            response && response.status === 200 ?
-                userAuth() :
-                setError(true);
-
-        }
-        catch(error) {
-            console.log(error);
-            setError(true);
-        }
+        Actions.signInUser(name);
     };
 
     let showModal = () => setModal(!modal);
